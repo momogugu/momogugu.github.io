@@ -379,9 +379,7 @@
 <p>3.编辑<code>~/.npmrc</code>加入下面内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ registery = http://registery.cnpmjs.org</div></pre></td></tr></table></figure>
 <p>以上几种方法，个人偏爱直接使用<code>cnpm install</code>来安装，也有很多人推荐编辑<code>~/.npmrc</code>的方法，将配置写死，萝卜青菜各有所爱，好用最重要！</p>
-<h2 id="git-clone-太慢"><a href="#git-clone-太慢" class="headerlink" title="git clone 太慢"></a>git clone 太慢</h2><ol>
-<li>git shallow clone</li>
-</ol>
+<h2 id="git-clone-太慢"><a href="#git-clone-太慢" class="headerlink" title="git clone 太慢"></a>git clone 太慢</h2><p>1.git shallow clone</p>
 <p><code>git clone</code>默认下载项目的完整历史版本，如果只需要最新版的代码， 并不关心之前的历史信息，可以使用git的浅复制功能：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone --depth=1 https://github.com/***/***.git</div></pre></td></tr></table></figure></p>
 <p><code>--depth=1</code>表示只下载最近一次的版本，之后如果想获取完整历史信息，可以使用下面的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git fetch --unshallow</div></pre></td></tr></table></figure></p>
 <p>或者，如果只是想下载最新的代码看看，也可以直接从Github上下载打包好的ZIP文件，但是相对来说，浅复制更灵活。<br>网上还提供了很多其他的方法，很多我都没有尝试过，就不卖弄辣，总之科学上网！</p>
