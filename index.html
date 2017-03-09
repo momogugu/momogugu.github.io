@@ -288,6 +288,131 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/09/解决ie6、ie7下float-right换行的问题/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/09/解决ie6、ie7下float-right换行的问题/" itemprop="url">
+                  解决ie6、ie7下float:right换行的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-09T10:38:22+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="IE7总是可以给人惊喜"><a href="#IE7总是可以给人惊喜" class="headerlink" title="IE7总是可以给人惊喜"></a>IE7总是可以给人惊喜</h2><p>html结构如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;link-wrap&quot;&gt;</div><div class="line">  &lt;a id=&quot;forget-pwd&quot; href=&quot;./plugins/shunde/forget_password.html&quot;&gt;忘记密码&lt;/a&gt;</div><div class="line">  &lt;a id=&quot;register&quot; href=&quot;./plugins/shunde/register.html&quot;&gt;申请注册&lt;/a&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css样式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.link-wrap &#123;</div><div class="line">  width: 240px;</div><div class="line">  font-size: 14px;</div><div class="line">  position: absolute;</div><div class="line">  bottom: 25px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.link-wrap a &#123;</div><div class="line">  text-decoration: underline;</div><div class="line">  color: #4E8CB1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#register &#123;</div><div class="line">  float: right;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>chrome及其它浏览器中的显示：<br><img src="http://p1.bqimg.com/567571/b811f492b442d9db.png" alt="chrome"><br>IE7中的显示：<br><img src="http://p1.bpimg.com/567571/f61a36038af35731.png" alt="IE7"><br>在一行足以放下所有元素的情况下，<code>float:right</code>的元素在IE7中出现了换行的问题。</p>
+<h2 id="how-to-fix？"><a href="#how-to-fix？" class="headerlink" title="how to fix？"></a>how to fix？</h2><p>我用了一个最简单的方法，<strong>css样式不变，只要把float的元素放到非float的前面即可。</strong><br>如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;link-wrap&quot;&gt;</div><div class="line">  &lt;a id=&quot;register&quot; href=&quot;./plugins/shunde/register.html&quot;&gt;申请注册&lt;/a&gt;</div><div class="line">  &lt;a id=&quot;forget-pwd&quot; href=&quot;./plugins/shunde/forget_password.html&quot;&gt;忘记密码&lt;/a&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="http://stackoverflow.com/questions/4797573/float-right-in-ie7-dropping-to-a-new-line" target="_blank" rel="external">http://stackoverflow.com/questions/4797573/float-right-in-ie7-dropping-to-a-new-line</a><br><a href="http://w3help.org/zh-cn/causes/RM8005" target="_blank" rel="external">http://w3help.org/zh-cn/causes/RM8005</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/06/seajs-遇到的问题/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -369,23 +494,23 @@
         
           
             <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>嗯，又遇到问题了，也不是第一次遇到这个问题了，之前都没意识到是哪里不对，就忽略了这个问题，现在第二次遇到就去查了一下，大概是这样，在源文件中一切正常，用grunt构建以后的文件会出现下图的报错，我想应该是seajs管理依赖出了点问题。<br><img src="http://p1.bqimg.com/4851/88e413aaf4047f32.jpg" alt="bugs"><br>我的文件路径大概是这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">├──plugins/</div><div class="line">│   │──shunde/</div><div class="line">│   │   │──js/</div><div class="line">│   └── └──index.html</div><div class="line">├───statics/</div><div class="line">├───modules/</div><div class="line">└───config.js</div></pre></td></tr></table></figure></p>
-<p>我的配置文件是这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">seajs.config(&#123;</div><div class="line">	base: &apos;./js/&apos;,</div><div class="line">	alias: &#123;</div><div class="line">		&apos;Handlebars&apos;: &apos;../../../statics/scripts/handlebars.min.js&apos;,</div><div class="line">		&apos;config&apos;: &apos;../../../config.js&apos;</div><div class="line">	&#125;,</div><div class="line">	map: [</div><div class="line">		[&apos;.js&apos;, &apos;.js?v=@@version&apos;]</div><div class="line">	]</div><div class="line">&#125;);</div><div class="line">  seajs.use(&apos;./js/register&apos;);</div></pre></td></tr></table></figure></p>
+<p>我的配置文件是这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">seajs.config(&#123;</div><div class="line">  base: &apos;./js/&apos;,</div><div class="line">    alias: &#123;</div><div class="line">      &apos;Handlebars&apos;: &apos;../../../statics/scripts/handlebars.min.js&apos;,</div><div class="line">      &apos;config&apos;: &apos;../../../config.js&apos;</div><div class="line">    &#125;,</div><div class="line">    map: [</div><div class="line">      [&apos;.js&apos;, &apos;.js?v=@@version&apos;]</div><div class="line">    ]</div><div class="line">  &#125;);</div><div class="line">seajs.use(&apos;./js/register&apos;);</div></pre></td></tr></table></figure></p>
 <p>我的<code>register.js</code>文件中这样引入了<code>util.js</code>，报错的parseForm函数就定义在<code>util.js</code>文件中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var util = require(&apos;../../../modules/base/util&apos;);</div></pre></td></tr></table></figure></p>
 <p>报错的原因应该是<code>util.js</code>文件引入失败。</p>
 <h2 id="ID和路径匹配原则"><a href="#ID和路径匹配原则" class="headerlink" title="ID和路径匹配原则"></a>ID和路径匹配原则</h2><p>所谓ID和路径匹配原则是指，使用<code>seajs.use</code>或<code>require</code>进行引用的文件，如果是具名模块（即定义了ID的模块），会把ID和<code>seajs.use</code>的路径名进行匹配，如果一致，则正确执行模块返回结果。反之，则返回null。<br>Sea.js 的模块启动接口秉承的是路径即 ID 的设计原则。seajs.use 的方法的第一个参数被规定为文件路径（而不是 ID），可以通过 alias 来帮助 ID 匹配上最终的路径。<br>在进行路径解析的时候<code>require(&#39;../../../modules/base/util&#39;)</code>，首先判断<code>seajs.config</code>是否定义了该alias，如果存在则替换；在这之后再根据base，将id值解析为url；最后进行map解析。</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol>
 <li><p>在alias中新增util的定义</p>
 <p> 修改配置文件</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">seajs.config(&#123;</div><div class="line">	base: &quot;./js/&quot;,</div><div class="line">	alias: &#123;</div><div class="line">		&quot;Handlebars&quot;: &apos;../../../statics/scripts/handlebars.min.js&apos;,</div><div class="line">		&apos;config&apos;: &apos;../../../config&apos;,</div><div class="line">		&apos;util&apos;: &apos;../../../modules/base/util&apos;</div><div class="line">	&#125;,</div><div class="line">	map: [</div><div class="line">		[&apos;.js&apos;, &apos;.js?v=@@version&apos;]</div><div class="line">	]</div><div class="line">&#125;);</div><div class="line">seajs.use(&apos;./js/forget_password&apos;);</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">seajs.config(&#123;</div><div class="line">  base: &quot;./js/&quot;,</div><div class="line">    alias: &#123;</div><div class="line">    &quot;Handlebars&quot;: &apos;../../../statics/scripts/handlebars.min.js&apos;,</div><div class="line">    &apos;config&apos;: &apos;../../../config&apos;,</div><div class="line">    &apos;util&apos;: &apos;../../../modules/base/util&apos;</div><div class="line">  &#125;,</div><div class="line">  map: [</div><div class="line">    [&apos;.js&apos;, &apos;.js?v=@@version&apos;]</div><div class="line">  ]</div><div class="line">&#125;);</div><div class="line">seajs.use(&apos;./js/register&apos;);</div></pre></td></tr></table></figure>
 <p> 修改<code>register.js</code>文件</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var util = require(&apos;util&apos;);</div></pre></td></tr></table></figure>
 </li>
 <li><p>修改base路径</p>
 <p> 修改配置文件</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">seajs.config(&#123;</div><div class="line">	base: &quot;../../modules&quot;,</div><div class="line">	alias: &#123;</div><div class="line">		&quot;Handlebars&quot;: &apos;../../../statics/scripts/handlebars.min.js&apos;,</div><div class="line">		&apos;config&apos;: &apos;../../../config&apos;,</div><div class="line">		&apos;util&apos;: &apos;../../../modules/base/util&apos;</div><div class="line">	&#125;,</div><div class="line">	map: [</div><div class="line">		[&apos;.js&apos;, &apos;.js?v=@@version&apos;]</div><div class="line">	]</div><div class="line">&#125;);</div><div class="line">seajs.use(&apos;./js/forget_password&apos;);</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">seajs.config(&#123;</div><div class="line">  base: &quot;../../modules&quot;,</div><div class="line">  alias: &#123;</div><div class="line">    &quot;Handlebars&quot;: &apos;../../../statics/scripts/handlebars.min.js&apos;,</div><div class="line">    &apos;config&apos;: &apos;../../../config&apos;,</div><div class="line">    &apos;util&apos;: &apos;../../../modules/base/util&apos;</div><div class="line">  &#125;,</div><div class="line">  map: [</div><div class="line">    [&apos;.js&apos;, &apos;.js?v=@@version&apos;]</div><div class="line">  ]</div><div class="line">&#125;);</div><div class="line">seajs.use(&apos;./js/register&apos;);</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h2><p><a href="https://github.com/seajs/seajs/issues/930" target="_blank" rel="external">https://github.com/seajs/seajs/issues/930</a></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://github.com/seajs/seajs/issues/930" target="_blank" rel="external">https://github.com/seajs/seajs/issues/930</a></p>
 
           
         
@@ -641,11 +766,11 @@
         
           
             <p>最近好忙，赶需求赶需求，赶完一个又一个。css好渣，对现如今还在使用IE6的用户真是深恶痛绝，每次改兼容性就是小半天过去了。吐槽了这么久，来说一说前段时间调样式的时候犯的错吧，有关css选择器。</p>
-<h2 id="first-child-选择器"><a href="#first-child-选择器" class="headerlink" title=":first-child 选择器"></a>:first-child 选择器</h2><p><code>:first-child</code> 选择器用于选取属于其父元素的首个子元素的指定选择器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p:first-child &#123;</div><div class="line">	font-weight: bold; //将作为某元素第一个子元素的所有p设置为粗体</div><div class="line">&#125;</div><div class="line">li:first-child &#123;</div><div class="line">	text-transform: uppercase; //将某个元素第一个子元素的所有li元素变成大写</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="first-child-选择器"><a href="#first-child-选择器" class="headerlink" title=":first-child 选择器"></a>:first-child 选择器</h2><p><code>:first-child</code> 选择器用于选取属于其父元素的首个子元素的指定选择器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">p:first-child &#123;</div><div class="line">  font-weight: bold; //将作为某元素第一个子元素的所有p设置为粗体</div><div class="line">&#125;</div><div class="line">li:first-child &#123;</div><div class="line">  text-transform: uppercase; //将某个元素第一个子元素的所有li元素变成大写</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>最常见的误解是：认为<code>p:first-child</code>这样的选择器会选择p元素的第一个子元素</strong><br>此外，对于较早版本的IE浏览器，<code>&lt;!DOCTYPE&gt;</code>必须声明，<code>:first-child</code>才会生效。</p>
-<p>举个栗子：<br>匹配作为任何元素的第一个子元素的p元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">			p:first-child &#123;</div><div class="line">			  color: red;</div><div class="line">			&#125; </div><div class="line">		&lt;/style&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;p&gt;some text&lt;/p&gt;</div><div class="line">		&lt;p&gt;some text&lt;/p&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-<p>匹配所有p元素中的第一个<i>元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">			p &gt; i:first-child &#123;</div><div class="line">			  font-weight:bold; </div><div class="line">			&#125; </div><div class="line">		&lt;/style&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;p&gt;some &lt;i&gt;text&lt;/i&gt;. some &lt;i&gt;text&lt;/i&gt;.&lt;/p&gt;</div><div class="line">		&lt;p&gt;some &lt;i&gt;text&lt;/i&gt;. some &lt;i&gt;text&lt;/i&gt;.&lt;/p&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></i></p>
-<p>匹配所有作为第一个子元素的p元素中所有的i元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">	&lt;head&gt;</div><div class="line">		&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">			p:first-child i &#123;</div><div class="line">			  color:blue;</div><div class="line">			&#125; </div><div class="line">		&lt;/style&gt;</div><div class="line">	&lt;/head&gt;</div><div class="line">	&lt;body&gt;</div><div class="line">		&lt;p&gt;some &lt;i&gt;text&lt;/i&gt;. some &lt;i&gt;text&lt;/i&gt;.&lt;/p&gt;</div><div class="line">		&lt;p&gt;some &lt;i&gt;text&lt;/i&gt;. some &lt;i&gt;text&lt;/i&gt;.&lt;/p&gt;</div><div class="line">	&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>举个栗子：<br>匹配作为任何元素的第一个子元素的p元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">      p:first-child &#123;</div><div class="line">        color: red;</div><div class="line">      &#125; </div><div class="line">    &lt;/style&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;p&gt;some text&lt;/p&gt;</div><div class="line">    &lt;p&gt;some text&lt;/p&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>匹配所有p元素中的第一个<i>元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">      p &gt; i:first-child &#123;</div><div class="line">        font-weight:bold; </div><div class="line">      &#125; </div><div class="line">    &lt;/style&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;p&gt;some &lt;i&gt;text&lt;/i&gt;. some &lt;i&gt;text&lt;/i&gt;.&lt;/p&gt;</div><div class="line">    &lt;p&gt;some &lt;i&gt;text&lt;/i&gt;. some &lt;i&gt;text&lt;/i&gt;.&lt;/p&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></i></p>
+<p>匹配所有作为第一个子元素的p元素中所有的i元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;style type=&quot;text/css&quot;&gt;</div><div class="line">      p:first-child i &#123;</div><div class="line">        color:blue;</div><div class="line">      &#125; </div><div class="line">    &lt;/style&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;p&gt;some &lt;i&gt;text&lt;/i&gt;. some &lt;i&gt;text&lt;/i&gt;.&lt;/p&gt;</div><div class="line">    &lt;p&gt;some &lt;i&gt;text&lt;/i&gt;. some &lt;i&gt;text&lt;/i&gt;.&lt;/p&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 
           
         
@@ -844,7 +969,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
