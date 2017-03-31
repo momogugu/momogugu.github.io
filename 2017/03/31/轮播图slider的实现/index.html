@@ -105,19 +105,25 @@
 
 
 
-<meta name="description" content="基本用法1.setTimeout指定延迟后调用函数2.setInterval以指定周期调用函数setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。
-JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在未来的某个时间执行，而具体执行时机是不能保证的">
+<meta name="description" content="原理一系列的大小相等的图片平铺，利用CSS布局只显示一张图片，其余隐藏。通过计算偏移量利用定时器实现自动播放，或通过手动点击事件切换图片。codedemo
+DOM操作页面加载完获取元素，然后通过dom元素的事件绑定，实现左右点击和button点击切换图片。注意在切换到最边缘的图片时，进行判断，跳转至相应图片位置。
+定时器，自动轮播setTimeout&amp;amp;setInterval
+事件运用JS动">
 <meta property="og:type" content="article">
-<meta property="og:title" content="有关setTimeout和setInterval">
-<meta property="og:url" content="http://yoursite.com/2017/03/29/有关setTimeout和setInterval/index.html">
+<meta property="og:title" content="轮播图slider的实现">
+<meta property="og:url" content="http://yoursite.com/2017/03/31/轮播图slider的实现/index.html">
 <meta property="og:site_name" content="蘑菇小姐会开花">
-<meta property="og:description" content="基本用法1.setTimeout指定延迟后调用函数2.setInterval以指定周期调用函数setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。
-JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在未来的某个时间执行，而具体执行时机是不能保证的">
-<meta property="og:updated_time" content="2017-03-31T02:15:29.000Z">
+<meta property="og:description" content="原理一系列的大小相等的图片平铺，利用CSS布局只显示一张图片，其余隐藏。通过计算偏移量利用定时器实现自动播放，或通过手动点击事件切换图片。codedemo
+DOM操作页面加载完获取元素，然后通过dom元素的事件绑定，实现左右点击和button点击切换图片。注意在切换到最边缘的图片时，进行判断，跳转至相应图片位置。
+定时器，自动轮播setTimeout&amp;amp;setInterval
+事件运用JS动">
+<meta property="og:updated_time" content="2017-03-31T03:02:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="有关setTimeout和setInterval">
-<meta name="twitter:description" content="基本用法1.setTimeout指定延迟后调用函数2.setInterval以指定周期调用函数setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。
-JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在未来的某个时间执行，而具体执行时机是不能保证的">
+<meta name="twitter:title" content="轮播图slider的实现">
+<meta name="twitter:description" content="原理一系列的大小相等的图片平铺，利用CSS布局只显示一张图片，其余隐藏。通过计算偏移量利用定时器实现自动播放，或通过手动点击事件切换图片。codedemo
+DOM操作页面加载完获取元素，然后通过dom元素的事件绑定，实现左右点击和button点击切换图片。注意在切换到最边缘的图片时，进行判断，跳转至相应图片位置。
+定时器，自动轮播setTimeout&amp;amp;setInterval
+事件运用JS动">
 
 
 
@@ -145,13 +151,13 @@ JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在�
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/29/有关setTimeout和setInterval/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/31/轮播图slider的实现/"/>
 
 
 
 
 
-  <title> 有关setTimeout和setInterval | 蘑菇小姐会开花 </title>
+  <title> 轮播图slider的实现 | 蘑菇小姐会开花 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -290,7 +296,7 @@ JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/29/有关setTimeout和setInterval/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/31/轮播图slider的实现/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="mogu">
@@ -314,7 +320,7 @@ JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在�
             
             
               
-                有关setTimeout和setInterval
+                轮播图slider的实现
               
             
           </h1>
@@ -329,8 +335,8 @@ JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在�
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-29T16:02:29+08:00">
-                2017-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T10:09:28+08:00">
+                2017-03-31
               </time>
             
 
@@ -365,17 +371,10 @@ JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在�
       
 
       
-        <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>1.setTimeout指定延迟后调用函数<br>2.setInterval以指定周期调用函数<br>setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。</p>
-<p><strong>JavaScript是运行在单线程的环境中</strong>，定时器仅仅是<strong>计划</strong>代码在未来的某个时间执行，而<strong>具体执行时机是不能保证的</strong>。</p>
-<h2 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setTimeout(function() &#123;...&#125;, timer);</div></pre></td></tr></table></figure>
-<p>为了确保两次执行之间有固定的间隔，可以不用setInterval，而是每次执行结束后，使用setTimeout指定下一次执行的具体时间。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setTimeout(someTask, 100);</div><div class="line">veryLongTask();</div></pre></td></tr></table></figure>
-<p>setTimeout指定100ms以后运行someTask，但是，如果后面的veryLongTask函数运行时间很长，过了100ms还没结束，那someTask就得等到veryLongTask运行结束才执行。</p>
-<h2 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval"></a>setInterval</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setInterval(function() &#123;...&#125;, interval);</div></pre></td></tr></table></figure>
-<p>setInterval并不能保证两个函数之间的调用的间隔一定是与interval相符合的时间，周期会受function执行时间影响。<br>setInterval指定的是”开始执行之间的间隔“，并不考虑每次任务执行本身所消耗的时间。因此实际上，两次执行之间的间隔会小于指定的时间。比如，setInterval指定每100ms执行一次，每次执行需要5ms，那么第一次执行结束后95毫秒，第二次执行就会开始。如果某次执行耗时特别长，比如需要105毫秒，那么它结束后，下一次执行就会立即开始。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">setInterval(function () &#123;</div><div class="line">  console.log(2);</div><div class="line">&#125;, 1000);</div><div class="line"></div><div class="line">(function () &#123;</div><div class="line">  sleeping(3000);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>setInterval要求每隔1s输出一个2，但是sleeping要3s才能完成，就会导致在sleeping完成以后连续输出两个2，然后开始每隔1s输出一个2。<br><strong>setInterval具有累积效应</strong>，如果某个操作特别耗时，超过了setInterval的时间间隔，排在后面的操作会被累积起来，然后在很短的时间内连续触发，可能会造成性能问题。</p>
-<h2 id="更多请参考："><a href="#更多请参考：" class="headerlink" title="更多请参考："></a>更多请参考：</h2><p>[setTimeout()和setInterval() 何时被调用执行]<br>(<a href="http://www.cnblogs.com/dolphinX/archive/2013/04/05/2784933.html" target="_blank" rel="external">http://www.cnblogs.com/dolphinX/archive/2013/04/05/2784933.html</a>)<br>[你真的了解setTimeout和setInterval吗]<br>(<a href="http://qingbob.com/difference-between-settimeout-setinterval/" target="_blank" rel="external">http://qingbob.com/difference-between-settimeout-setinterval/</a>)<br>[定时器-阮一峰]<br>(<a href="http://javascript.ruanyifeng.com/advanced/timer.html" target="_blank" rel="external">http://javascript.ruanyifeng.com/advanced/timer.html</a>)</p>
+        <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>一系列的大小相等的图片平铺，利用CSS布局只显示一张图片，其余隐藏。通过计算偏移量利用定时器实现自动播放，或通过手动点击事件切换图片。<br><a href="https://github.com/momogugu/slider" target="_blank" rel="external">code</a><br><a href="https://momogugu.github.io/slider/index.html" target="_blank" rel="external">demo</a></p>
+<h2 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h2><p>页面加载完获取元素，然后通过dom元素的事件绑定，实现左右点击和button点击切换图片。<br>注意在切换到最边缘的图片时，进行判断，跳转至相应图片位置。</p>
+<h2 id="定时器，自动轮播"><a href="#定时器，自动轮播" class="headerlink" title="定时器，自动轮播"></a>定时器，自动轮播</h2><p>setTimeout&amp;setInterval</p>
+<h2 id="事件运用"><a href="#事件运用" class="headerlink" title="事件运用"></a>事件运用</h2><h2 id="JS动画"><a href="#JS动画" class="headerlink" title="JS动画"></a>JS动画</h2><h2 id="函数递归"><a href="#函数递归" class="headerlink" title="函数递归"></a>函数递归</h2><h2 id="无限滚动"><a href="#无限滚动" class="headerlink" title="无限滚动"></a>无限滚动</h2><p>参考文章：<br><a href="http://www.cnblogs.com/LIUYANZUO/p/5679753.html" target="_blank" rel="external">手把手原生js轮播图</a></p>
 
       
     </div>
@@ -412,8 +411,8 @@ JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/27/css实现背景透明文字不透明/" rel="next" title="css实现背景透明文字不透明">
-                <i class="fa fa-chevron-left"></i> css实现背景透明文字不透明
+              <a href="/2017/03/29/有关setTimeout和setInterval/" rel="next" title="有关setTimeout和setInterval">
+                <i class="fa fa-chevron-left"></i> 有关setTimeout和setInterval
               </a>
             
           </div>
@@ -421,10 +420,6 @@ JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/31/轮播图slider的实现/" rel="prev" title="轮播图slider的实现">
-                轮播图slider的实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -562,7 +557,7 @@ JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout"><span class="nav-number">2.</span> <span class="nav-text">setTimeout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setInterval"><span class="nav-number">3.</span> <span class="nav-text">setInterval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多请参考："><span class="nav-number">4.</span> <span class="nav-text">更多请参考：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM操作"><span class="nav-number">2.</span> <span class="nav-text">DOM操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时器，自动轮播"><span class="nav-number">3.</span> <span class="nav-text">定时器，自动轮播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件运用"><span class="nav-number">4.</span> <span class="nav-text">事件运用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS动画"><span class="nav-number">5.</span> <span class="nav-text">JS动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数递归"><span class="nav-number">6.</span> <span class="nav-text">函数递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无限滚动"><span class="nav-number">7.</span> <span class="nav-text">无限滚动</span></a></li></ol></div>
             
 
           </div>
