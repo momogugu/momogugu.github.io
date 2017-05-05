@@ -320,6 +320,189 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/next主题博客添加canvas-nest动画背景.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/05/next主题博客添加canvas-nest动画背景.html" itemprop="url">
+                  next主题博客添加canvas_nest动画背景
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-05T16:09:57+08:00">
+                2017-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/application/" itemprop="url" rel="index">
+                    <span itemprop="name">application</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/05/next主题博客添加canvas-nest动画背景.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/05/05/next主题博客添加canvas-nest动画背景.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2017/05/05/next主题博客添加canvas-nest动画背景.html" class="leancloud_visitors" data-flag-title="next主题博客添加canvas_nest动画背景">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>闲来无太多事，上午用很短的时间给公司的项目改了一个bug，就开始研究如何让自己的博客更漂亮哈哈哈。其实是因为最近研究dva经常瓶颈期，很苦恼orz，所以找个简单的活儿，给自己一点儿小成就感吧。<br>今天先给博客加了一个访客量统计，然后加了一个评论，加了一个搜索栏，完善了categories页面，修改了页面永久链接，设置404公益页面，修改站点建立时间，配置canvas_nest动画背景，最后自称一枚会敲代码的小仙女哈哈哈~</p>
+<h2 id="canvas-nest-动态背景"><a href="#canvas-nest-动态背景" class="headerlink" title="canvas_nest 动态背景"></a>canvas_nest 动态背景</h2><p>先附上Github地址：<a href="https://github.com/hustcc/canvas-nest.js" target="_blank" rel="external">https://github.com/hustcc/canvas-nest.js</a><br>之前以为是国外的人写的，结果翻了一下作者的Github，阿里的大神辣。<br>再附上<a href="https://github.com/hustcc/canvas-nest.js/blob/master/README-zh.md" target="_blank" rel="external">中文的readme</a>，具体介绍可自行翻阅。</p>
+<h3 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h3><p>打开<code>/next/_config.yml</code>，搜索 canvas_nest，设置值为true。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># canvas_nest</span></div><div class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span> //开启动画</div><div class="line"><span class="attr">canvas_nest:</span> <span class="literal">false</span> //关闭动画</div></pre></td></tr></table></figure></p>
+<h3 id="修改-layout-swig"><a href="#修改-layout-swig" class="headerlink" title="修改_layout.swig"></a>修改_layout.swig</h3><p>打开<code>next/layout/_layout.swig</code>，在<code>&lt;/body&gt;</code>之前添加如下代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% if theme.canvas_nest %&#125;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>请注意不要将代码置于 <head> </head>里面。</strong></p>
+<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><ul>
+<li><code>color</code>：线条颜色, 默认: ‘0,0,0’ ；三个数字分别为(R,G,B)，注意用,分割</li>
+<li><code>opacity</code>：线条透明度（0～1），默认：0.5</li>
+<li><code>count</code>：线条的总数量，默认150</li>
+<li><code>zIndex</code>：背景的z-index属性，css属性用于控制所在层的位置，默认：－1<br>所以，大家可以根据自己的喜好配置～</li>
+</ul>
+<h2 id="访客量统计"><a href="#访客量统计" class="headerlink" title="访客量统计"></a>访客量统计</h2><p><a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="external">为NexT主题添加文章阅读量统计功能</a><br>我就是在看这个博客的时候觉得背景不错，就给自己加了一个哈哈哈。</p>
+<h2 id="添加评论系统"><a href="#添加评论系统" class="headerlink" title="添加评论系统"></a>添加评论系统</h2><p>看了一下next官方教程提到的几个，前两个Disqus和Facebook的都被墙了，无语凝噎😓<br>所以直接pass了这两个选项，选了HyperComments这个，<a href="http://goozy.github.io/2017/03/22/%E4%BB%8E%E4%BB%8A%E5%A4%A9%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8HyperComments%E5%95%A6%EF%BC%81/" target="_blank" rel="external">详细教程</a>在这里。<br>大家可以根据自己的喜好在<a href="https://www.hypercomments.com/" target="_blank" rel="external">官网</a>配置评论模块。<br>如过需要取消某个 页面/文章 的评论，在 md 文件的 front-matter 中增加 <code>comments: false</code>即可。</p>
+<h2 id="搜索栏"><a href="#搜索栏" class="headerlink" title="搜索栏"></a>搜索栏</h2><p>选择了最简单的local search</p>
+<h3 id="安装hexo-generator-searchdb"><a href="#安装hexo-generator-searchdb" class="headerlink" title="安装hexo-generator-searchdb"></a>安装<code>hexo-generator-searchdb</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-searchdb --save</div></pre></td></tr></table></figure>
+<h3 id="编辑站点配置文件"><a href="#编辑站点配置文件" class="headerlink" title="编辑站点配置文件"></a>编辑站点配置文件</h3><p>打开<code>_config.yml</code>，新增以下内容到任意位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">  path: search.xml</div><div class="line">  field: post</div><div class="line">  format: html</div><div class="line">  limit: 10000</div></pre></td></tr></table></figure></p>
+<h3 id="编辑主题配置文件"><a href="#编辑主题配置文件" class="headerlink" title="编辑主题配置文件"></a>编辑主题配置文件</h3><p>打开<code>/next/_config.yml</code>，新增以下内容到任意位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">local_search:</div><div class="line">  enable: true</div></pre></td></tr></table></figure></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>要下班辣！还有一些简单的配置项，就不细说辣，或者等有时间了再来补哈哈哈。<br>详细问题可以看<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">hexo官方文档</a><br><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">next官方文档</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/28/pdf-js的使用.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1864,172 +2047,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/24/好久不更博了！.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="mogu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="蘑菇小姐会开花">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/24/好久不更博了！.html" itemprop="url">
-                  好久不更博了！
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-24T15:41:49+08:00">
-                2017-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/diary/" itemprop="url" rel="index">
-                    <span itemprop="name">diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/24/好久不更博了！.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/03/24/好久不更博了！.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2017/03/24/好久不更博了！.html" class="leancloud_visitors" data-flag-title="好久不更博了！">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="好久不更博了呢"><a href="#好久不更博了呢" class="headerlink" title="好久不更博了呢"></a>好久不更博了呢</h2><p>看了一下上次更新博客的时间是3月9日，距离现在已经快小半个月了呢，中间试图写过一篇博客，关于安装Linux系统的，后来因为迟迟没有安装成功，博客就没有下文了…<br>公司的电脑上装了win10，自己想装一个Linux玩玩，然后遇到了一个现在我都没解决的问题，uefi模式下的安装问题，后来就不了了之了…现在也没心思去弄。<br>没更博的这段时间，做了一些什么工作呢？想了想，大概就是视频播放？做了一半，遇到了超级多的问题，很多都没有找到解决方法，可能是我解决问题的思路不对？最后这个烂摊子被leader接过去了…后来就零零散散的做了一些小任务，改了一些小bug吧，比如avalon表单正则验证，最后我用修改源码的方案解决了我的问题，也不知道这样算不算偷懒呢。噢！对，中间还有一个定时器的问题，被大佬指导了，后来还找同事问了问，主要就是setTimeout和setInterval的差别吧。<br>唉，今天心情好差…昨天写了一个静态页面，感觉比刚开始工作的时候熟悉了一丢丢，或者是因为这个页面比较简单吧，实在不想说是很大的进步。<br>中午吃饭的时候同事问：你月光吗，有存钱的打算吗…我说攒钱出去玩呀，她说没有存钱买房的打算吗，我…好像并没有这样的打算，更倾向于今天想买什么，买的起就马上买了，想去哪里玩，就开始攒钱等着出去玩，并没有想过要留多少积蓄…妈妈老说要细水长流，也叮嘱我有工资了也要多少给自己留点积蓄，可是好像从小就没培养出这种消费习惯…<br>唔，明天就周末啦，下周就清明了，一直在计划清明去哪里玩，五一去哪里玩，可是总是隐隐觉得会不成行，或者玩的不太开心…哎，工作以后能出去玩的时间就那么几个假期，各地还都是人山人海…之前想五一去一个地方，然后等到国庆的时候再攒一笔钱去东南亚国家玩玩或者去大西北转转，现在想想也不知何时才会成行…<br>有很多很多的期待，却只有一点一点地行动。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2079,7 +2096,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -2097,7 +2114,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
