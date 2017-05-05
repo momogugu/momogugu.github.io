@@ -117,7 +117,7 @@ git操作我比较常用的一个工作流程大概是这样：
 git操作我比较常用的一个工作流程大概是这样：
 初始化一个git仓库12// creates a new Git repositorygit init
 本地仓库修改提交添加至暂存区12// adds files from the working directory to th">
-<meta property="og:updated_time" content="2017-05-04T07:53:55.000Z">
+<meta property="og:updated_time" content="2017-05-04T08:18:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git操作笔记">
 <meta name="twitter:description" content="写在前面最近可能陆续会补一些以前学习时做的笔记吧，算是一个回顾，也是总结一下准备新的开始。毕竟！再不学习！！就要废了！！！
@@ -379,8 +379,7 @@ git操作我比较常用的一个工作流程大概是这样：
 <p>查看状态<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// inspects the contents of the working directory and staging area</div><div class="line">git status</div></pre></td></tr></table></figure></p>
 <p>查看改动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// shows the difference between the working directory and the staging area </div><div class="line">git diff</div></pre></td></tr></table></figure></p>
 <p>提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// permanently stores file changes from the staging area <span class="keyword">in</span> the repository</div><div class="line">git commit</div></pre></td></tr></table></figure></p>
-<h3 id="云端仓库"><a href="#云端仓库" class="headerlink" title="云端仓库"></a>云端仓库</h3><p>A remote is a Git repository that lives outside your Git project folder. Remotes can live on the web, on a shared network or even in a separate folder on your local computer.</p>
-<p>云端建立分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@github.com:username/repository.git</div></pre></td></tr></table></figure></p>
+<h3 id="云端仓库"><a href="#云端仓库" class="headerlink" title="云端仓库"></a>云端仓库</h3><p>A remote is a Git repository that lives outside your Git project folder. Remotes can live on the web, on a shared network or even in a separate folder on your local computer.<br><a id="more"></a><br>云端建立分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@github.com:username/repository.git</div></pre></td></tr></table></figure></p>
 <p>同步云端仓库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// push a <span class="built_in">local</span> branch to the origin remote</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></p>
 <p>这个流程一般是我在本地建好仓库后同步至github时的操作。还有一个常用的流程是从github克隆代码，然后本地修改上传。</p>
 <h3 id="克隆一个git仓库"><a href="#克隆一个git仓库" class="headerlink" title="克隆一个git仓库"></a>克隆一个git仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Creates a <span class="built_in">local</span> copy of a remote</div><div class="line">git <span class="built_in">clone</span> url</div></pre></td></tr></table></figure>

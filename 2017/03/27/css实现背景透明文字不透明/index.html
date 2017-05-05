@@ -113,7 +113,7 @@ IE9以下采用了IE渐变滤镜1filter:progid:DXImageTransform.Microsoft.Gradie
 <meta property="og:site_name" content="蘑菇小姐会开花">
 <meta property="og:description" content="css3 rgba()rgba()就可以实现了，r代表红色red，g代表绿色green，b代表蓝色blue，a代表透明度alpha。但是IE9以下好像就不支持rgba（）函数了。
 IE9以下采用了IE渐变滤镜1filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#AARRGGBB,endColorStr=#AARRGGBB">
-<meta property="og:updated_time" content="2017-05-04T07:52:36.000Z">
+<meta property="og:updated_time" content="2017-05-04T08:17:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css实现背景透明文字不透明">
 <meta name="twitter:description" content="css3 rgba()rgba()就可以实现了，r代表红色red，g代表绿色green，b代表蓝色blue，a代表透明度alpha。但是IE9以下好像就不支持rgba（）函数了。
@@ -370,7 +370,8 @@ IE9以下采用了IE渐变滤镜1filter:progid:DXImageTransform.Microsoft.Gradie
 <p>startColorStr设置或检索色彩渐变的开始颜色和透明度，格式为#AARRGGBB,AA、RR、GG、BB<br>为十六进制正整数，取值范围为00-FF，AA指定透明度，00是完全透明，FF是完全不透明。超出取值范围的值将被恢复为默认值。<br><strong>2位透明度的换算方法： x=alpha*255，讲计算的结果x转换成十六进制即可。<br>js换算16进制方法：x.toString(16)</strong><br>举个栗子：0.25的透明度</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">0.25</span>*<span class="number">255</span> = <span class="number">63.75</span> ~= <span class="number">64</span></div><div class="line">a.toString(<span class="number">16</span>) = <span class="number">40</span></div></pre></td></tr></table></figure>
 <p>endColorStr设置或检索色彩渐变的结束颜色和透明度。</p>
-<h2 id="rgba-filter-兼容"><a href="#rgba-filter-兼容" class="headerlink" title="rgba()+filter 兼容"></a>rgba()+filter 兼容</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background: rgba(0,0,0,0.5);</div><div class="line">filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#7F000000,endColorStr=#7F000000)</div></pre></td></tr></table></figure>
+<h2 id="rgba-filter-兼容"><a href="#rgba-filter-兼容" class="headerlink" title="rgba()+filter 兼容"></a>rgba()+filter 兼容</h2><a id="more"></a> 
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background: rgba(0,0,0,0.5);</div><div class="line">filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#7F000000,endColorStr=#7F000000)</div></pre></td></tr></table></figure>
 <p>可以使所有主流浏览器元素实现50%透明的黑色背景。</p>
 <h2 id="opacity-filter"><a href="#opacity-filter" class="headerlink" title="opacity+filter"></a>opacity+filter</h2><p>设置元素的不透明度，这种不透明属性会让子元素也跟着半透明（即背景文字都透明），所以一般用于调整图片或者模块的整体不透明度。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">opacity: 0.5;</div><div class="line">filter: Alpha(opacity=50); //兼容IE9以下版本</div></pre></td></tr></table></figure></p>
 <p>在IE6、7、8中使用filter属性，设置子元素为相对定位，可以让父元素透明，子元素不透明。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!<span class="selector-tag">--</span>只支持<span class="selector-tag">IE6</span>、7、8<span class="selector-tag">--</span>&gt;</div><div class="line">@<span class="keyword">media</span> \<span class="number">0s</span>creen\,screen\<span class="number">9</span> &#123;...&#125;</div></pre></td></tr></table></figure></p>
