@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="git," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -105,25 +105,25 @@
 
 
 
-<meta name="description" content="写在前面最近可能陆续会补一些以前学习时做的笔记吧，算是一个回顾，也是总结一下准备新的开始。毕竟！再不学习！！就要废了！！！
-git操作我比较常用的一个工作流程大概是这样：
-初始化一个git仓库12// creates a new Git repositorygit init
-本地仓库修改提交添加至暂存区12// adds files from the working directory to th">
+<meta name="description" content="原理一系列的大小相等的图片平铺，利用CSS布局只显示一张图片，其余隐藏。通过计算偏移量利用定时器实现自动播放，或通过手动点击事件切换图片。codedemo
+DOM操作页面加载完获取元素，然后通过dom元素的事件绑定，实现左右点击和button点击切换图片。注意在切换到最边缘的图片时，进行判断，跳转至相应图片位置。
+定时器，自动轮播setTimeout&amp;amp;setInterval
+事件运用JS动">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git操作笔记">
-<meta property="og:url" content="http://yoursite.com/2017/04/20/git操作笔记/index.html">
+<meta property="og:title" content="轮播图slider的实现">
+<meta property="og:url" content="http://yoursite.com/2017/03/31/轮播图slider的实现.html">
 <meta property="og:site_name" content="蘑菇小姐会开花">
-<meta property="og:description" content="写在前面最近可能陆续会补一些以前学习时做的笔记吧，算是一个回顾，也是总结一下准备新的开始。毕竟！再不学习！！就要废了！！！
-git操作我比较常用的一个工作流程大概是这样：
-初始化一个git仓库12// creates a new Git repositorygit init
-本地仓库修改提交添加至暂存区12// adds files from the working directory to th">
-<meta property="og:updated_time" content="2017-05-04T08:18:19.000Z">
+<meta property="og:description" content="原理一系列的大小相等的图片平铺，利用CSS布局只显示一张图片，其余隐藏。通过计算偏移量利用定时器实现自动播放，或通过手动点击事件切换图片。codedemo
+DOM操作页面加载完获取元素，然后通过dom元素的事件绑定，实现左右点击和button点击切换图片。注意在切换到最边缘的图片时，进行判断，跳转至相应图片位置。
+定时器，自动轮播setTimeout&amp;amp;setInterval
+事件运用JS动">
+<meta property="og:updated_time" content="2017-05-05T07:28:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git操作笔记">
-<meta name="twitter:description" content="写在前面最近可能陆续会补一些以前学习时做的笔记吧，算是一个回顾，也是总结一下准备新的开始。毕竟！再不学习！！就要废了！！！
-git操作我比较常用的一个工作流程大概是这样：
-初始化一个git仓库12// creates a new Git repositorygit init
-本地仓库修改提交添加至暂存区12// adds files from the working directory to th">
+<meta name="twitter:title" content="轮播图slider的实现">
+<meta name="twitter:description" content="原理一系列的大小相等的图片平铺，利用CSS布局只显示一张图片，其余隐藏。通过计算偏移量利用定时器实现自动播放，或通过手动点击事件切换图片。codedemo
+DOM操作页面加载完获取元素，然后通过dom元素的事件绑定，实现左右点击和button点击切换图片。注意在切换到最边缘的图片时，进行判断，跳转至相应图片位置。
+定时器，自动轮播setTimeout&amp;amp;setInterval
+事件运用JS动">
 
 
 
@@ -151,13 +151,13 @@ git操作我比较常用的一个工作流程大概是这样：
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/20/git操作笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/31/轮播图slider的实现.html"/>
 
 
 
 
 
-  <title> git操作笔记 | 蘑菇小姐会开花 </title>
+  <title> 轮播图slider的实现 | 蘑菇小姐会开花 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -328,7 +328,7 @@ git操作我比较常用的一个工作流程大概是这样：
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/git操作笔记/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/31/轮播图slider的实现.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="mogu">
@@ -352,7 +352,7 @@ git操作我比较常用的一个工作流程大概是这样：
             
             
               
-                git操作笔记
+                轮播图slider的实现
               
             
           </h1>
@@ -367,8 +367,8 @@ git操作我比较常用的一个工作流程大概是这样：
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-20T16:53:23+08:00">
-                2017-04-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T10:09:28+08:00">
+                2017-03-31
               </time>
             
 
@@ -377,6 +377,28 @@ git操作我比较常用的一个工作流程大概是这样：
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/application/" itemprop="url" rel="index">
+                    <span itemprop="name">application</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -387,8 +409,8 @@ git操作我比较常用的一个工作流程大概是这样：
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/20/git操作笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/20/git操作笔记/" itemprop="commentsCount"></span>
+                <a href="/2017/03/31/轮播图slider的实现.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/03/31/轮播图slider的实现.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -397,7 +419,7 @@ git操作我比较常用的一个工作流程大概是这样：
 
           
           
-             <span id="/2017/04/20/git操作笔记/" class="leancloud_visitors" data-flag-title="git操作笔记">
+             <span id="/2017/03/31/轮播图slider的实现.html" class="leancloud_visitors" data-flag-title="轮播图slider的实现">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -426,29 +448,10 @@ git操作我比较常用的一个工作流程大概是这样：
       
 
       
-        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>最近可能陆续会补一些以前学习时做的笔记吧，算是一个回顾，也是总结一下准备新的开始。<br>毕竟！再不学习！！就要废了！！！</p>
-<h2 id="git操作"><a href="#git操作" class="headerlink" title="git操作"></a>git操作</h2><p>我比较常用的一个工作流程大概是这样：</p>
-<h3 id="初始化一个git仓库"><a href="#初始化一个git仓库" class="headerlink" title="初始化一个git仓库"></a>初始化一个git仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// creates a new Git repository</div><div class="line">git init</div></pre></td></tr></table></figure>
-<h3 id="本地仓库修改提交"><a href="#本地仓库修改提交" class="headerlink" title="本地仓库修改提交"></a>本地仓库修改提交</h3><p>添加至暂存区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// adds files from the working directory to the staging area</div><div class="line">git add</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add . // 添加所有改变文件，任何未改变文件都不会被包含</div><div class="line">git add index.html // 添加 index.html</div></pre></td></tr></table></figure>
-<p>查看状态<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// inspects the contents of the working directory and staging area</div><div class="line">git status</div></pre></td></tr></table></figure></p>
-<p>查看改动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// shows the difference between the working directory and the staging area </div><div class="line">git diff</div></pre></td></tr></table></figure></p>
-<p>提交<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// permanently stores file changes from the staging area <span class="keyword">in</span> the repository</div><div class="line">git commit</div></pre></td></tr></table></figure></p>
-<h3 id="云端仓库"><a href="#云端仓库" class="headerlink" title="云端仓库"></a>云端仓库</h3><p>A remote is a Git repository that lives outside your Git project folder. Remotes can live on the web, on a shared network or even in a separate folder on your local computer.<br><a id="more"></a><br>云端建立分支<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@github.com:username/repository.git</div></pre></td></tr></table></figure></p>
-<p>同步云端仓库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// push a <span class="built_in">local</span> branch to the origin remote</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></p>
-<p>这个流程一般是我在本地建好仓库后同步至github时的操作。还有一个常用的流程是从github克隆代码，然后本地修改上传。</p>
-<h3 id="克隆一个git仓库"><a href="#克隆一个git仓库" class="headerlink" title="克隆一个git仓库"></a>克隆一个git仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Creates a <span class="built_in">local</span> copy of a remote</div><div class="line">git <span class="built_in">clone</span> url</div></pre></td></tr></table></figure>
-<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><h3 id="查看提交纪录"><a href="#查看提交纪录" class="headerlink" title="查看提交纪录"></a>查看提交纪录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// shows a list of all previous comits</div><div class="line">git <span class="built_in">log</span></div></pre></td></tr></table></figure>
-<h3 id="查看云端项目"><a href="#查看云端项目" class="headerlink" title="查看云端项目"></a>查看云端项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Lists a Git project<span class="string">'s remotes.</span></div><div class="line">git remote -v</div></pre></td></tr></table></figure>
-<h3 id="回退"><a href="#回退" class="headerlink" title="回退"></a>回退</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// backtrack <span class="keyword">in</span> Git:</div><div class="line">// Discards changes <span class="keyword">in</span> the working directory</div><div class="line">git checkout HEAD filename</div><div class="line">// Unstages file changes <span class="keyword">in</span> the staging area</div><div class="line">git reset HEAD filename</div><div class="line">// Can be used to reset to a previous commit <span class="keyword">in</span> your commit history.</div><div class="line">git reset SHA</div></pre></td></tr></table></figure>
-<h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><p>Git branching allows users to experiment with different versions of a project by checking out separate branches to work on.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Lists all a Git project<span class="string">'s branches.</span></div><div class="line">git branch</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Creates a new branch.</div><div class="line">git branch branch_name</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Used to switch from one branch to another.</div><div class="line">git checkout branch_name</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Deletes the branch specified.</div><div class="line">git branch <span class="_">-d</span> branch_name</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Used to join file changes from one branch to another.</div><div class="line">git merge branch_name</div></pre></td></tr></table></figure>
-<h2 id="git协作流程"><a href="#git协作流程" class="headerlink" title="git协作流程"></a>git协作流程</h2><p>The Git Collaborative Workflow are steps that enable smooth project development when multiple collaborators are working on the same Git project.<br>The workflow for Git collaborations typically follows this order:<br>1.Fetch and merge changes from the remote<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Fetches work from the remote into the <span class="built_in">local</span> copy.</div><div class="line">git fetch</div></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// Merges origin/master into your <span class="built_in">local</span> branch.</div><div class="line">git merge origin/master</div></pre></td></tr></table></figure>
-<p>2.Create a branch to work on a new project feature<br>3.Develop the feature on your branch and commit your work<br>4.Fetch and merge from the remote again (in case new commits were made while you were working)<br>5.Push your branch up to the remote for review</p>
+        <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>一系列的大小相等的图片平铺，利用CSS布局只显示一张图片，其余隐藏。通过计算偏移量利用定时器实现自动播放，或通过手动点击事件切换图片。<br><a href="https://github.com/momogugu/slider" target="_blank" rel="external">code</a><br><a href="https://momogugu.github.io/slider/index.html" target="_blank" rel="external">demo</a></p>
+<h2 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h2><p>页面加载完获取元素，然后通过dom元素的事件绑定，实现左右点击和button点击切换图片。<br>注意在切换到最边缘的图片时，进行判断，跳转至相应图片位置。</p>
+<h2 id="定时器，自动轮播"><a href="#定时器，自动轮播" class="headerlink" title="定时器，自动轮播"></a>定时器，自动轮播</h2><p>setTimeout&amp;setInterval</p>
+<h2 id="事件运用"><a href="#事件运用" class="headerlink" title="事件运用"></a>事件运用</h2><h2 id="JS动画"><a href="#JS动画" class="headerlink" title="JS动画"></a>JS动画</h2><h2 id="函数递归"><a href="#函数递归" class="headerlink" title="函数递归"></a>函数递归</h2><h2 id="无限滚动"><a href="#无限滚动" class="headerlink" title="无限滚动"></a>无限滚动</h2><p>参考文章：<br><a href="http://www.cnblogs.com/LIUYANZUO/p/5679753.html" target="_blank" rel="external">手把手原生js轮播图</a></p>
 
       
     </div>
@@ -472,7 +475,7 @@ git操作我比较常用的一个工作流程大概是这样：
       
         <div class="post-tags">
           
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -485,8 +488,8 @@ git操作我比较常用的一个工作流程大概是这样：
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/13/快下班辣！/" rel="next" title="快下班辣！">
-                <i class="fa fa-chevron-left"></i> 快下班辣！
+              <a href="/2017/03/29/有关setTimeout和setInterval.html" rel="next" title="有关setTimeout和setInterval">
+                <i class="fa fa-chevron-left"></i> 有关setTimeout和setInterval
               </a>
             
           </div>
@@ -495,8 +498,8 @@ git操作我比较常用的一个工作流程大概是这样：
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/21/基于dva-cli和antd的项目实践/" rel="prev" title="基于dva-cli和antd的项目实践">
-                基于dva-cli和antd的项目实践 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/05/setMonth-setDate.html" rel="prev" title="setMonth() & setDate()">
+                setMonth() & setDate() <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -578,11 +581,18 @@ git操作我比较常用的一个工作流程大概是这样：
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -637,7 +647,7 @@ git操作我比较常用的一个工作流程大概是这样：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git操作"><span class="nav-number">2.</span> <span class="nav-text">git操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化一个git仓库"><span class="nav-number">2.1.</span> <span class="nav-text">初始化一个git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地仓库修改提交"><span class="nav-number">2.2.</span> <span class="nav-text">本地仓库修改提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#云端仓库"><span class="nav-number">2.3.</span> <span class="nav-text">云端仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#克隆一个git仓库"><span class="nav-number">2.4.</span> <span class="nav-text">克隆一个git仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本回退"><span class="nav-number">3.</span> <span class="nav-text">版本回退</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交纪录"><span class="nav-number">3.1.</span> <span class="nav-text">查看提交纪录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看云端项目"><span class="nav-number">3.2.</span> <span class="nav-text">查看云端项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回退"><span class="nav-number">3.3.</span> <span class="nav-text">回退</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git分支"><span class="nav-number">4.</span> <span class="nav-text">git分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git协作流程"><span class="nav-number">5.</span> <span class="nav-text">git协作流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM操作"><span class="nav-number">2.</span> <span class="nav-text">DOM操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时器，自动轮播"><span class="nav-number">3.</span> <span class="nav-text">定时器，自动轮播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件运用"><span class="nav-number">4.</span> <span class="nav-text">事件运用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS动画"><span class="nav-number">5.</span> <span class="nav-text">JS动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数递归"><span class="nav-number">6.</span> <span class="nav-text">函数递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无限滚动"><span class="nav-number">7.</span> <span class="nav-text">无限滚动</span></a></li></ol></div>
             
 
           </div>
@@ -776,7 +786,7 @@ git操作我比较常用的一个工作流程大概是这样：
 		_hcwp.push({widget:"Bloggerstream", widget_id: 90504, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 90504, xid: "2017/04/20/git操作笔记/"});
+		_hcwp.push({widget:"Stream", widget_id: 90504, xid: "2017/03/31/轮播图slider的实现.html"});
 		
 
 		(function() {
