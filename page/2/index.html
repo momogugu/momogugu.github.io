@@ -320,6 +320,181 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/27/css实现背景透明文字不透明.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/27/css实现背景透明文字不透明.html" itemprop="url">
+                  css实现背景透明文字不透明
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-27T17:27:21+08:00">
+                2017-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/application/" itemprop="url" rel="index">
+                    <span itemprop="name">application</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/27/css实现背景透明文字不透明.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/03/27/css实现背景透明文字不透明.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2017/03/27/css实现背景透明文字不透明.html" class="leancloud_visitors" data-flag-title="css实现背景透明文字不透明">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="css3-rgba"><a href="#css3-rgba" class="headerlink" title="css3 rgba()"></a>css3 rgba()</h2><p>rgba()就可以实现了，r代表红色red，g代表绿色green，b代表蓝色blue，a代表透明度alpha。<br>但是IE9以下好像就不支持rgba（）函数了。</p>
+<h2 id="IE9以下"><a href="#IE9以下" class="headerlink" title="IE9以下"></a>IE9以下</h2><p>采用了IE渐变滤镜<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#AARRGGBB,endColorStr=#AARRGGBB)</div></pre></td></tr></table></figure></p>
+<p>startColorStr设置或检索色彩渐变的开始颜色和透明度，格式为#AARRGGBB,AA、RR、GG、BB<br>为十六进制正整数，取值范围为00-FF，AA指定透明度，00是完全透明，FF是完全不透明。超出取值范围的值将被恢复为默认值。<br><strong>2位透明度的换算方法： x=alpha*255，讲计算的结果x转换成十六进制即可。<br>js换算16进制方法：x.toString(16)</strong><br>举个栗子：0.25的透明度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">0.25</span>*<span class="number">255</span> = <span class="number">63.75</span> ~= <span class="number">64</span></div><div class="line">a.toString(<span class="number">16</span>) = <span class="number">40</span></div></pre></td></tr></table></figure>
+<p>endColorStr设置或检索色彩渐变的结束颜色和透明度。</p>
+<h2 id="rgba-filter-兼容"><a href="#rgba-filter-兼容" class="headerlink" title="rgba()+filter 兼容"></a>rgba()+filter 兼容</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/27/css实现背景透明文字不透明.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/24/好久不更博了！.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1383,7 +1558,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
