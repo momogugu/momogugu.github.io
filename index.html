@@ -320,6 +320,363 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/27/vue-js-笔记（一）.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/27/vue-js-笔记（一）.html" itemprop="url">
+                  vue.js 笔记（一）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-27T10:38:55+08:00">
+                2017-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/27/vue-js-笔记（一）.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/05/27/vue-js-笔记（一）.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2017/05/27/vue-js-笔记（一）.html" class="leancloud_visitors" data-flag-title="vue.js 笔记（一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install vue</div></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在html文件中引入vue.js<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/vue/dist/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="vue-实例"><a href="#vue-实例" class="headerlink" title="vue 实例"></a>vue 实例</h3><p>实例化vue，传人一个选项对象，可以包含数据、模版、挂载元素、方法、生命周期钩子等，详见<a href="https://cn.vuejs.org/v2/api/" target="_blank" rel="external">API文档</a>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">  <span class="attr">data</span>: data</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>每个vue实例都会代理起data对象里所有的属性，这些被代理的属性都是响应的，也只有这些。<br>以<code>$</code>为前缀的属性和方法都试vue自带暴露的。</p>
+<h3 id="实例生命周期"><a href="#实例生命周期" class="headerlink" title="实例生命周期"></a>实例生命周期</h3><h3 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h3><p>文本插值（”Mustache”语法，双大括号），将数据解释为纯文本。<br><code>v-html</code>将插入的内容当作html，数据绑定会被忽略。（危险的用法，xss攻击）</p>
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><p>带有<code>-v</code>前缀的特殊属性，🌰！<br><code>v-bind:title</code>可以将元素节点的title属性和vue实例的某个属性保持一致。<br>vue可以绑定DOM文本到数据，利用<code>v-if</code>指令也可以绑定DOM节点到数据。<br><code>v-for</code>指令可以绑定数组的数据来渲染一个项目列表。<br><code>v-on</code>指令可以绑定一个事件监听器。<br><code>v-model</code>指令可以实现表单输入和应用状态之间的双向绑定。<br><code>v-once</code>一次性地插值，当数据改变时，插值处的内容不会更新。<br><code>v-on:click.prevent</code>会对触发的事件调用<code>event.preventDefault()</code>。<br><code>v-bind:title</code>可以缩写为<code>:title</code>，<code>v-on:click</code>可以缩写为<code>@click</code>。</p>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p>vue 2.x中，过滤器只能在文本插值绑定（双大括号）和<code>v-bind</code>表达式中使用，可以串联，可以接受传参。</p>
+<h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><p><strong>计算属性是基于它们的依赖进行缓存的。</strong>计算属性只有在它的相关依赖发生改变时才会重新求值。当依赖的属性值没有发生改变时，多次访问计算属性会立即返回之前的计算结果，而不必再次执行函数。<br>如果不希望有缓存，可以用method替代。只要发生重新渲染，method调用总会执行该函数。</p>
+<h3 id="v-if-amp-v-show"><a href="#v-if-amp-v-show" class="headerlink" title="v-if &amp; v-show"></a>v-if &amp; v-show</h3><p><code>v-if</code>条件渲染，在切换过程中，条件快内的事件监听器和子组件适当地被销毁和重建，同时也是惰性的，只有在条件为真时，才开始渲染。支持<code>&lt;template&gt;</code>语法。<br><code>v-show</code>元素总会被渲染，只是简单的基于css进行切换。不支持<code>&lt;template&gt;</code>语法。<br>前者有更高的切换开销，后者有更高的初始渲染开销。因此，如果需要频繁的切换，选择<code>v-show</code>较好；如果在运行时条件不太可能改变，则用<code>v-if</code>比较好。</p>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>注册一个组件，<strong>确保在初始化根实例之前注册组件。</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全局注册</span></div><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  <span class="attr">props</span>: [],</div><div class="line">  <span class="attr">template</span>: <span class="string">''</span>,</div><div class="line">  <span class="attr">data</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>data必须是一个函数。</strong><br>组件之间的相互通信，父组件通过props向下传递数据给子组件，子组件通过events给父组件发送消息。<strong>props down, events up.</strong><br>动态地绑定父组件的数据到子模板的props，用<code>v-bind</code>。<br>使用<code>$on(eventName)</code>监听事件，使用<code>$emit(eventName)</code>触发事件。<br>父组件可以在使用子组件的地方直接用<code>v-on</code>来监听子组件触发的事件，而不能用<code>$on</code>侦听子组件抛出的事件。<br>组件<code>v-model</code>生效，进行数据双向绑定，需要接受一个value属性，在有新的value时触发input事件。<br>组件作用域简单地说是：父组件模板的内容在父组件作用域内编译；子组件模板的内容在子组件作用域内编译。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/webpack-笔记.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/12/webpack-笔记.html" itemprop="url">
+                  webpack 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T14:54:14+08:00">
+                2017-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/12/webpack-笔记.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/05/12/webpack-笔记.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2017/05/12/webpack-笔记.html" class="leancloud_visitors" data-flag-title="webpack 笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基本配置项"><a href="#基本配置项" class="headerlink" title="基本配置项"></a>基本配置项</h2><h3 id="entry-和-output"><a href="#entry-和-output" class="headerlink" title="entry 和 output"></a>entry 和 output</h3><p><code>entry</code>: 入口文件，一般入口文件关注整体流程，而非入口文件关注某一部分的实现。<code>output.path</code>: 指定输出路径<br><code>output.filename</code>: </p>
+<ul>
+<li>name: 模块名称</li>
+<li>hash: 模块编译后的（整体）hash值，编译后文件hash值一样</li>
+<li>chunkhash: 分片的hash值，编译后文件hash值不同，即每一个分片的hash都不一样<br><code>output.publicPath</code>: 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换。<br>单一入口文件情况下：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: <span class="string">'src/index.js'</span>,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">'bundle.js'</span>,</div><div class="line">    <span class="attr">path</span>: <span class="string">'./dist/'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>多个入口文件情况下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: &#123;</div><div class="line">  <span class="string">"index"</span>: <span class="string">'src/index.js'</span>,</div><div class="line">  <span class="string">"login/login"</span>: <span class="string">'src/login/login.js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">'[name]-[hash].js'</span>,</div><div class="line">    <span class="comment">// filename: '[name]-[chunkhash].js',</span></div><div class="line">    path: <span class="string">'./dist/'</span></div><div class="line">    <span class="comment">// 输出文件中login.js位于dist/login目录下</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h2><p>将代码拆分后进行异步加载，但是不会自动提取公共模块的代码。</p>
+<h3 id="定义分割点"><a href="#定义分割点" class="headerlink" title="定义分割点"></a>定义分割点</h3><p>分割点表示代码在此处被分割成两个独立的文件，有两种方法。<br>1.使用<code>require.ensure</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure([<span class="string">'module1'</span>, <span class="string">'module2'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'module1'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>2.使用AMD的动态<code>require</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>([<span class="string">'module1'</span>, <span class="string">'module2'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>上面的🌰中module1和module2就会被分割到独立的文件中去，而不会和入口文件打包在同一个文件中。</p>
+<h2 id="CommonChunks插件"><a href="#CommonChunks插件" class="headerlink" title="CommonChunks插件"></a>CommonChunks插件</h2><p>提取代码中的公用模块，然后将公告模块打包到一个独立的文件中去，以便在其它的入口和模块中使用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: &#123;</div><div class="line">    <span class="string">'main1'</span>: <span class="string">'./main1.js'</span>,</div><div class="line">    <span class="string">'main2'</span>: <span class="string">'./main2.js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">'bundle.[name].js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>, [<span class="string">'main1.js'</span>, <span class="string">'main2.js'</span>])</div><div class="line">  ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>插件plugins选项中，引用<code>webpack.optimize.CommonsChunkPlugin</code>来提取公共模块，参数<code>common.js</code>表示公共模块的文件名，后面的数组元素与entry一一对应，表示要提取这些模块中的公共模块。</p>
+<h2 id="使用loader"><a href="#使用loader" class="headerlink" title="使用loader"></a>使用loader</h2><p>webpack只能处理js文件，非js文件会被loader转换成js文件再require进来。<br>loader可以通过管道方式链式调用，每个loader可以把资源转换成任意格式并传递给下一个loader，但最后一个loader必须返回js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">module: &#123;</div><div class="line">  loaders: [&#123;</div><div class="line">    test: /\.jade$/, // 正则表达式，当文件路径匹配时启用</div><div class="line">    loader: &apos;jade&apos;, // 指定loader，可以用字符串或数组</div><div class="line">    exclude: /regexp/, // 排除部分文件</div><div class="line">    query: &#123;</div><div class="line">      p1: &apos;1&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;, &#123;</div><div class="line">    test: /\.css$/,</div><div class="line">    loader: &apos;style!css&apos; // 串联用法</div><div class="line">    // loaders: [&apos;style&apos;, &apos;css&apos;]</div><div class="line">  &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><p><a href="https://llp0574.github.io/2016/11/29/getting-started-with-webpack2/" target="_blank" rel="external">webpack2入门教程</a><br><a href="https://github.com/zhengweikeng/blog/issues/9" target="_blank" rel="external">webpack中关于样式的处理</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/flex-布局.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1716,350 +2073,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/31/轮播图slider的实现.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="mogu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="蘑菇小姐会开花">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/31/轮播图slider的实现.html" itemprop="url">
-                  轮播图slider的实现
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T10:09:28+08:00">
-                2017-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/application/" itemprop="url" rel="index">
-                    <span itemprop="name">application</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/31/轮播图slider的实现.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/03/31/轮播图slider的实现.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2017/03/31/轮播图slider的实现.html" class="leancloud_visitors" data-flag-title="轮播图slider的实现">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>一系列的大小相等的图片平铺，利用CSS布局只显示一张图片，其余隐藏。通过计算偏移量利用定时器实现自动播放，或通过手动点击事件切换图片。<br><a href="https://github.com/momogugu/slider" target="_blank" rel="external">code</a><br><a href="https://momogugu.github.io/slider/index.html" target="_blank" rel="external">demo</a></p>
-<h2 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h2><p>页面加载完获取元素，然后通过dom元素的事件绑定，实现左右点击和button点击切换图片。<br>注意在切换到最边缘的图片时，进行判断，跳转至相应图片位置。</p>
-<h2 id="定时器，自动轮播"><a href="#定时器，自动轮播" class="headerlink" title="定时器，自动轮播"></a>定时器，自动轮播</h2><p>setTimeout&amp;setInterval</p>
-<h2 id="事件运用"><a href="#事件运用" class="headerlink" title="事件运用"></a>事件运用</h2><h2 id="JS动画"><a href="#JS动画" class="headerlink" title="JS动画"></a>JS动画</h2><h2 id="函数递归"><a href="#函数递归" class="headerlink" title="函数递归"></a>函数递归</h2><h2 id="无限滚动"><a href="#无限滚动" class="headerlink" title="无限滚动"></a>无限滚动</h2><p>参考文章：<br><a href="http://www.cnblogs.com/LIUYANZUO/p/5679753.html" target="_blank" rel="external">手把手原生js轮播图</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/29/有关setTimeout和setInterval.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="mogu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="蘑菇小姐会开花">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/29/有关setTimeout和setInterval.html" itemprop="url">
-                  有关setTimeout和setInterval
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-29T16:02:29+08:00">
-                2017-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/notes/" itemprop="url" rel="index">
-                    <span itemprop="name">notes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/29/有关setTimeout和setInterval.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/03/29/有关setTimeout和setInterval.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2017/03/29/有关setTimeout和setInterval.html" class="leancloud_visitors" data-flag-title="有关setTimeout和setInterval">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>1.setTimeout指定延迟后调用函数<br>2.setInterval以指定周期调用函数<br>setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。</p>
-<p><strong>JavaScript是运行在单线程的环境中</strong>，定时器仅仅是<strong>计划</strong>代码在未来的某个时间执行，而<strong>具体执行时机是不能保证的</strong>。</p>
-<h2 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;, timer);</div></pre></td></tr></table></figure>
-<p>为了确保两次执行之间有固定的间隔，可以不用setInterval，而是每次执行结束后，使用setTimeout指定下一次执行的具体时间。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setTimeout(someTask, <span class="number">100</span>);</div><div class="line">veryLongTask();</div></pre></td></tr></table></figure>
-<p>setTimeout指定100ms以后运行someTask，但是，如果后面的veryLongTask函数运行时间很长，过了100ms还没结束，那someTask就得等到veryLongTask运行结束才执行。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/29/有关setTimeout和setInterval.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2109,7 +2122,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -2127,7 +2140,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

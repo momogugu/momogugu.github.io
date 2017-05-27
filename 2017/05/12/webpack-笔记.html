@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="碎碎念," />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -105,16 +105,28 @@
 
 
 
-<meta name="description" content="好久不更博了呢看了一下上次更新博客的时间是3月9日，距离现在已经快小半个月了呢，中间试图写过一篇博客，关于安装Linux系统的，后来因为迟迟没有安装成功，博客就没有下文了…公司的电脑上装了win10，自己想装一个Linux玩玩，然后遇到了一个现在我都没解决的问题，uefi模式下的安装问题，后来就不了了之了…现在也没心思去弄。没更博的这段时间，做了一些什么工作呢？想了想，大概就是视频播放？做了一半，">
+<meta name="description" content="基本配置项entry 和 outputentry: 入口文件，一般入口文件关注整体流程，而非入口文件关注某一部分的实现。output.path: 指定输出路径output.filename: 
+
+name: 模块名称
+hash: 模块编译后的（整体）hash值，编译后文件hash值一样
+chunkhash: 分片的hash值，编译后文件hash值不同，即每一个分片的hash都不一样output.p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="好久不更博了！">
-<meta property="og:url" content="http://yoursite.com/2017/03/24/好久不更博了！.html">
+<meta property="og:title" content="webpack 笔记">
+<meta property="og:url" content="http://yoursite.com/2017/05/12/webpack-笔记.html">
 <meta property="og:site_name" content="蘑菇小姐会开花">
-<meta property="og:description" content="好久不更博了呢看了一下上次更新博客的时间是3月9日，距离现在已经快小半个月了呢，中间试图写过一篇博客，关于安装Linux系统的，后来因为迟迟没有安装成功，博客就没有下文了…公司的电脑上装了win10，自己想装一个Linux玩玩，然后遇到了一个现在我都没解决的问题，uefi模式下的安装问题，后来就不了了之了…现在也没心思去弄。没更博的这段时间，做了一些什么工作呢？想了想，大概就是视频播放？做了一半，">
-<meta property="og:updated_time" content="2017-05-05T07:27:56.000Z">
+<meta property="og:description" content="基本配置项entry 和 outputentry: 入口文件，一般入口文件关注整体流程，而非入口文件关注某一部分的实现。output.path: 指定输出路径output.filename: 
+
+name: 模块名称
+hash: 模块编译后的（整体）hash值，编译后文件hash值一样
+chunkhash: 分片的hash值，编译后文件hash值不同，即每一个分片的hash都不一样output.p">
+<meta property="og:updated_time" content="2017-05-17T03:38:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="好久不更博了！">
-<meta name="twitter:description" content="好久不更博了呢看了一下上次更新博客的时间是3月9日，距离现在已经快小半个月了呢，中间试图写过一篇博客，关于安装Linux系统的，后来因为迟迟没有安装成功，博客就没有下文了…公司的电脑上装了win10，自己想装一个Linux玩玩，然后遇到了一个现在我都没解决的问题，uefi模式下的安装问题，后来就不了了之了…现在也没心思去弄。没更博的这段时间，做了一些什么工作呢？想了想，大概就是视频播放？做了一半，">
+<meta name="twitter:title" content="webpack 笔记">
+<meta name="twitter:description" content="基本配置项entry 和 outputentry: 入口文件，一般入口文件关注整体流程，而非入口文件关注某一部分的实现。output.path: 指定输出路径output.filename: 
+
+name: 模块名称
+hash: 模块编译后的（整体）hash值，编译后文件hash值一样
+chunkhash: 分片的hash值，编译后文件hash值不同，即每一个分片的hash都不一样output.p">
 
 
 
@@ -142,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/24/好久不更博了！.html"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/12/webpack-笔记.html"/>
 
 
 
 
 
-  <title> 好久不更博了！ | 蘑菇小姐会开花 </title>
+  <title> webpack 笔记 | 蘑菇小姐会开花 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -319,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/24/好久不更博了！.html">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/webpack-笔记.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="mogu">
@@ -343,7 +355,7 @@
             
             
               
-                好久不更博了！
+                webpack 笔记
               
             
           </h1>
@@ -358,8 +370,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-24T15:41:49+08:00">
-                2017-03-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T14:54:14+08:00">
+                2017-05-12
               </time>
             
 
@@ -381,8 +393,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/diary/" itemprop="url" rel="index">
-                    <span itemprop="name">diary</span>
+                  <a href="/categories/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">notes</span>
                   </a>
                 </span>
 
@@ -400,8 +412,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/24/好久不更博了！.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/03/24/好久不更博了！.html" itemprop="commentsCount"></span>
+                <a href="/2017/05/12/webpack-笔记.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/05/12/webpack-笔记.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -410,7 +422,7 @@
 
           
           
-             <span id="/2017/03/24/好久不更博了！.html" class="leancloud_visitors" data-flag-title="好久不更博了！">
+             <span id="/2017/05/12/webpack-笔记.html" class="leancloud_visitors" data-flag-title="webpack 笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -439,7 +451,22 @@
       
 
       
-        <h2 id="好久不更博了呢"><a href="#好久不更博了呢" class="headerlink" title="好久不更博了呢"></a>好久不更博了呢</h2><p>看了一下上次更新博客的时间是3月9日，距离现在已经快小半个月了呢，中间试图写过一篇博客，关于安装Linux系统的，后来因为迟迟没有安装成功，博客就没有下文了…<br>公司的电脑上装了win10，自己想装一个Linux玩玩，然后遇到了一个现在我都没解决的问题，uefi模式下的安装问题，后来就不了了之了…现在也没心思去弄。<br>没更博的这段时间，做了一些什么工作呢？想了想，大概就是视频播放？做了一半，遇到了超级多的问题，很多都没有找到解决方法，可能是我解决问题的思路不对？最后这个烂摊子被leader接过去了…后来就零零散散的做了一些小任务，改了一些小bug吧，比如avalon表单正则验证，最后我用修改源码的方案解决了我的问题，也不知道这样算不算偷懒呢。噢！对，中间还有一个定时器的问题，被大佬指导了，后来还找同事问了问，主要就是setTimeout和setInterval的差别吧。<br>唉，今天心情好差…昨天写了一个静态页面，感觉比刚开始工作的时候熟悉了一丢丢，或者是因为这个页面比较简单吧，实在不想说是很大的进步。<br>中午吃饭的时候同事问：你月光吗，有存钱的打算吗…我说攒钱出去玩呀，她说没有存钱买房的打算吗，我…好像并没有这样的打算，更倾向于今天想买什么，买的起就马上买了，想去哪里玩，就开始攒钱等着出去玩，并没有想过要留多少积蓄…妈妈老说要细水长流，也叮嘱我有工资了也要多少给自己留点积蓄，可是好像从小就没培养出这种消费习惯…<br>唔，明天就周末啦，下周就清明了，一直在计划清明去哪里玩，五一去哪里玩，可是总是隐隐觉得会不成行，或者玩的不太开心…哎，工作以后能出去玩的时间就那么几个假期，各地还都是人山人海…之前想五一去一个地方，然后等到国庆的时候再攒一笔钱去东南亚国家玩玩或者去大西北转转，现在想想也不知何时才会成行…<br>有很多很多的期待，却只有一点一点地行动。</p>
+        <h2 id="基本配置项"><a href="#基本配置项" class="headerlink" title="基本配置项"></a>基本配置项</h2><h3 id="entry-和-output"><a href="#entry-和-output" class="headerlink" title="entry 和 output"></a>entry 和 output</h3><p><code>entry</code>: 入口文件，一般入口文件关注整体流程，而非入口文件关注某一部分的实现。<code>output.path</code>: 指定输出路径<br><code>output.filename</code>: </p>
+<ul>
+<li>name: 模块名称</li>
+<li>hash: 模块编译后的（整体）hash值，编译后文件hash值一样</li>
+<li>chunkhash: 分片的hash值，编译后文件hash值不同，即每一个分片的hash都不一样<br><code>output.publicPath</code>: 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换。<br>单一入口文件情况下：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: <span class="string">'src/index.js'</span>,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">'bundle.js'</span>,</div><div class="line">    <span class="attr">path</span>: <span class="string">'./dist/'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>多个入口文件情况下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: &#123;</div><div class="line">  <span class="string">"index"</span>: <span class="string">'src/index.js'</span>,</div><div class="line">  <span class="string">"login/login"</span>: <span class="string">'src/login/login.js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">'[name]-[hash].js'</span>,</div><div class="line">    <span class="comment">// filename: '[name]-[chunkhash].js',</span></div><div class="line">    path: <span class="string">'./dist/'</span></div><div class="line">    <span class="comment">// 输出文件中login.js位于dist/login目录下</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h2><p>将代码拆分后进行异步加载，但是不会自动提取公共模块的代码。</p>
+<h3 id="定义分割点"><a href="#定义分割点" class="headerlink" title="定义分割点"></a>定义分割点</h3><p>分割点表示代码在此处被分割成两个独立的文件，有两种方法。<br>1.使用<code>require.ensure</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.ensure([<span class="string">'module1'</span>, <span class="string">'module2'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">require</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'module1'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>2.使用AMD的动态<code>require</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>([<span class="string">'module1'</span>, <span class="string">'module2'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>上面的🌰中module1和module2就会被分割到独立的文件中去，而不会和入口文件打包在同一个文件中。</p>
+<h2 id="CommonChunks插件"><a href="#CommonChunks插件" class="headerlink" title="CommonChunks插件"></a>CommonChunks插件</h2><p>提取代码中的公用模块，然后将公告模块打包到一个独立的文件中去，以便在其它的入口和模块中使用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: &#123;</div><div class="line">    <span class="string">'main1'</span>: <span class="string">'./main1.js'</span>,</div><div class="line">    <span class="string">'main2'</span>: <span class="string">'./main2.js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">filename</span>: <span class="string">'bundle.[name].js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">plugins</span>: [</div><div class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>, [<span class="string">'main1.js'</span>, <span class="string">'main2.js'</span>])</div><div class="line">  ]</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>插件plugins选项中，引用<code>webpack.optimize.CommonsChunkPlugin</code>来提取公共模块，参数<code>common.js</code>表示公共模块的文件名，后面的数组元素与entry一一对应，表示要提取这些模块中的公共模块。</p>
+<h2 id="使用loader"><a href="#使用loader" class="headerlink" title="使用loader"></a>使用loader</h2><p>webpack只能处理js文件，非js文件会被loader转换成js文件再require进来。<br>loader可以通过管道方式链式调用，每个loader可以把资源转换成任意格式并传递给下一个loader，但最后一个loader必须返回js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">module: &#123;</div><div class="line">  loaders: [&#123;</div><div class="line">    test: /\.jade$/, // 正则表达式，当文件路径匹配时启用</div><div class="line">    loader: &apos;jade&apos;, // 指定loader，可以用字符串或数组</div><div class="line">    exclude: /regexp/, // 排除部分文件</div><div class="line">    query: &#123;</div><div class="line">      p1: &apos;1&apos;</div><div class="line">    &#125;</div><div class="line">  &#125;, &#123;</div><div class="line">    test: /\.css$/,</div><div class="line">    loader: &apos;style!css&apos; // 串联用法</div><div class="line">    // loaders: [&apos;style&apos;, &apos;css&apos;]</div><div class="line">  &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><p><a href="https://llp0574.github.io/2016/11/29/getting-started-with-webpack2/" target="_blank" rel="external">webpack2入门教程</a><br><a href="https://github.com/zhengweikeng/blog/issues/9" target="_blank" rel="external">webpack中关于样式的处理</a></p>
 
       
     </div>
@@ -484,7 +511,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/碎碎念/" rel="tag"># 碎碎念</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -497,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/09/解决ie6、ie7下float-right换行的问题.html" rel="next" title="解决ie6、ie7下float:right换行的问题">
-                <i class="fa fa-chevron-left"></i> 解决ie6、ie7下float:right换行的问题
+              <a href="/2017/05/10/flex-布局.html" rel="next" title="flex 布局">
+                <i class="fa fa-chevron-left"></i> flex 布局
               </a>
             
           </div>
@@ -507,8 +534,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/27/css实现背景透明文字不透明.html" rel="prev" title="css实现背景透明文字不透明">
-                css实现背景透明文字不透明 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/27/vue-js-笔记（一）.html" rel="prev" title="vue.js 笔记（一）">
+                vue.js 笔记（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -656,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#好久不更博了呢"><span class="nav-number">1.</span> <span class="nav-text">好久不更博了呢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本配置项"><span class="nav-number">1.</span> <span class="nav-text">基本配置项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#entry-和-output"><span class="nav-number">1.1.</span> <span class="nav-text">entry 和 output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分片"><span class="nav-number">2.</span> <span class="nav-text">分片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义分割点"><span class="nav-number">2.1.</span> <span class="nav-text">定义分割点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CommonChunks插件"><span class="nav-number">3.</span> <span class="nav-text">CommonChunks插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用loader"><span class="nav-number">4.</span> <span class="nav-text">使用loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#友情链接"><span class="nav-number">5.</span> <span class="nav-text">友情链接</span></a></li></ol></div>
             
 
           </div>
@@ -795,7 +822,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 90504, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 90504, xid: "2017/03/24/好久不更博了！.html"});
+		_hcwp.push({widget:"Stream", widget_id: 90504, xid: "2017/05/12/webpack-笔记.html"});
 		
 
 		(function() {
