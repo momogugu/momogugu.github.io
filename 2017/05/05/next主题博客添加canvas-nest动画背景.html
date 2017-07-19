@@ -111,7 +111,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/05/next主题博客添加canvas-nest动画背景.html">
 <meta property="og:site_name" content="蘑菇小姐会开花">
 <meta property="og:description" content="闲来无太多事，上午用很短的时间给公司的项目改了一个bug，就开始研究如何让自己的博客更漂亮哈哈哈。其实是因为最近研究dva经常瓶颈期，很苦恼orz，所以找个简单的活儿，给自己一点儿小成就感吧。今天先给博客加了一个访客量统计，然后加了一个评论，加了一个搜索栏，完善了categories页面，修改了页面永久链接，设置404公益页面，修改站点建立时间，配置canvas_nest动画背景，最后自称一枚会敲">
-<meta property="og:updated_time" content="2017-07-19T07:01:39.000Z">
+<meta property="og:updated_time" content="2017-07-19T07:04:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="next主题博客添加canvas_nest动画背景">
 <meta name="twitter:description" content="闲来无太多事，上午用很短的时间给公司的项目改了一个bug，就开始研究如何让自己的博客更漂亮哈哈哈。其实是因为最近研究dva经常瓶颈期，很苦恼orz，所以找个简单的活儿，给自己一点儿小成就感吧。今天先给博客加了一个访客量统计，然后加了一个评论，加了一个搜索栏，完善了categories页面，修改了页面永久链接，设置404公益页面，修改站点建立时间，配置canvas_nest动画背景，最后自称一枚会敲">
@@ -443,7 +443,7 @@
 <h2 id="canvas-nest-动态背景"><a href="#canvas-nest-动态背景" class="headerlink" title="canvas_nest 动态背景"></a>canvas_nest 动态背景</h2><p>先附上Github地址：<a href="https://github.com/hustcc/canvas-nest.js" target="_blank" rel="external">https://github.com/hustcc/canvas-nest.js</a><br>之前以为是国外的人写的，结果翻了一下作者的Github，阿里的大神辣。<br>再附上<a href="https://github.com/hustcc/canvas-nest.js/blob/master/README-zh.md" target="_blank" rel="external">中文的readme</a>，具体介绍可自行翻阅。</p>
 <h3 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h3><p>打开<code>/next/_config.yml</code>，搜索 canvas_nest，设置值为true。<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># canvas_nest</span></div><div class="line"><span class="attr">canvas_nest:</span> <span class="literal">true</span> //开启动画</div><div class="line"><span class="attr">canvas_nest:</span> <span class="literal">false</span> //关闭动画</div></pre></td></tr></table></figure></p>
 <h3 id="修改-layout-swig"><a href="#修改-layout-swig" class="headerlink" title="修改_layout.swig"></a>修改_layout.swig</h3><p>打开<code>next/layout/_layout.swig</code>，在<code>&lt;/body&gt;</code>之前添加如下代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% if theme.canvas_nest %&#125;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>请注意不要将代码置于 <head> </head>里面。</strong></p>
+<p><strong>请注意不要将代码置于<code>&lt;head&gt;&lt;/head&gt;</code>里面。</strong></p>
 <h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><ul>
 <li><code>color</code>：线条颜色, 默认: ‘0,0,0’ ；三个数字分别为(R,G,B)，注意用,分割</li>
 <li><code>opacity</code>：线条透明度（0～1），默认：0.5</li>
