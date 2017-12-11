@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="typescript," />
 
 
 
@@ -105,28 +105,31 @@
 
 
 
-<meta name="description" content="TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。
+<meta name="description" content="安装1sudo npm install typescript -g
+编译1tsc hello.ts
+TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。
 原始数据类型布尔值，数值，字符串，null， undefined，symbol。
 布尔值使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。
-数值使用number定义数值类型
-字符串使用string定义字符串类型、用来定义模板字符串，${expr}">
+数值使">
 <meta property="og:type" content="article">
 <meta property="og:title" content="typescript相关">
 <meta property="og:url" content="http://yoursite.com/2017/07/05/typescript相关.html">
 <meta property="og:site_name" content="蘑菇小姐会开花">
-<meta property="og:description" content="TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。
+<meta property="og:description" content="安装1sudo npm install typescript -g
+编译1tsc hello.ts
+TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。
 原始数据类型布尔值，数值，字符串，null， undefined，symbol。
 布尔值使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。
-数值使用number定义数值类型
-字符串使用string定义字符串类型、用来定义模板字符串，${expr}">
-<meta property="og:updated_time" content="2017-07-06T12:59:14.000Z">
+数值使">
+<meta property="og:updated_time" content="2017-07-20T03:27:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="typescript相关">
-<meta name="twitter:description" content="TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。
+<meta name="twitter:description" content="安装1sudo npm install typescript -g
+编译1tsc hello.ts
+TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。
 原始数据类型布尔值，数值，字符串，null， undefined，symbol。
 布尔值使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。
-数值使用number定义数值类型
-字符串使用string定义字符串类型、用来定义模板字符串，${expr}">
+数值使">
 
 
 
@@ -381,6 +384,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -429,7 +454,9 @@
       
 
       
-        <p>TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。</p>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install typescript -g</div></pre></td></tr></table></figure>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsc hello.ts</div></pre></td></tr></table></figure>
+<p>TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。</p>
 <h2 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h2><p>布尔值，数值，字符串，null， undefined，symbol。</p>
 <h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><p>使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。</p>
 <h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><p>使用number定义数值类型</p>
@@ -439,6 +466,9 @@
 <h2 id="任意值"><a href="#任意值" class="headerlink" title="任意值"></a>任意值</h2><p>任意值Any表示允许赋值为任意类型。<br>声明一个变量为任意值之后，对它的任何操作，返回的内容的类型都是任意值。<br>变量如果在声明的时候，未指定其类型，那么它会被识别为任意值类型。</p>
 <h2 id="类型推论"><a href="#类型推论" class="headerlink" title="类型推论"></a>类型推论</h2><p>如果没有明确的指定类型，TypeScript会依照类型推论的规则推断出一个类型。<br>如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查。</p>
 <h2 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h2><p>只能访问此联合类型的所有类型里共有的属性或方法。<br>联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型。</p>
+<h2 id="对象的类型－接口"><a href="#对象的类型－接口" class="headerlink" title="对象的类型－接口"></a>对象的类型－接口</h2><p>赋值的时候，变量的形状必须和接口的形状保持一致，存在可选属性，但不允许添加未定义的属性。<br>一旦定义了任意属性，那么确定属性和可选属性都必须是它的子属性。<br>只读的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候。<br><a id="more"></a></p>
+<h2 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h2><p>［类型＋方括号］<br>数组的项中不允许出现其他的类型</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.gitbook.com/book/xcatliu/typescript-tutorial/details" target="_blank" rel="external">TypeScript 入门教程</a><br><a href="https://github.com/hstarorg/HstarDoc/blob/master/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3/TypeScript%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6tsconfig%E7%AE%80%E6%9E%90.md" target="_blank" rel="external">TypeScript配置文件tsconfig简析</a></p>
 
       
     </div>
@@ -480,6 +510,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/typescript/" rel="tag"># typescript</a>
+          
+        </div>
       
 
       
@@ -576,7 +612,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -585,7 +621,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -594,7 +630,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -649,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原始数据类型"><span class="nav-number">1.</span> <span class="nav-text">原始数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔值"><span class="nav-number">1.1.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值"><span class="nav-number">1.2.</span> <span class="nav-text">数值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">1.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空值"><span class="nav-number">1.4.</span> <span class="nav-text">空值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null和undefined"><span class="nav-number">1.5.</span> <span class="nav-text">null和undefined</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任意值"><span class="nav-number">2.</span> <span class="nav-text">任意值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型推论"><span class="nav-number">3.</span> <span class="nav-text">类型推论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联合类型"><span class="nav-number">4.</span> <span class="nav-text">联合类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">2.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始数据类型"><span class="nav-number">3.</span> <span class="nav-text">原始数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔值"><span class="nav-number">3.1.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数值"><span class="nav-number">3.2.</span> <span class="nav-text">数值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">3.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空值"><span class="nav-number">3.4.</span> <span class="nav-text">空值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null和undefined"><span class="nav-number">3.5.</span> <span class="nav-text">null和undefined</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任意值"><span class="nav-number">4.</span> <span class="nav-text">任意值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型推论"><span class="nav-number">5.</span> <span class="nav-text">类型推论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联合类型"><span class="nav-number">6.</span> <span class="nav-text">联合类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的类型－接口"><span class="nav-number">7.</span> <span class="nav-text">对象的类型－接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的类型"><span class="nav-number">8.</span> <span class="nav-text">数组的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">9.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
