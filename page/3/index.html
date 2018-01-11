@@ -320,6 +320,179 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/09/解决ie6、ie7下float-right换行的问题.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/09/解决ie6、ie7下float-right换行的问题.html" itemprop="url">
+                  解决ie6、ie7下float:right换行的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-09T10:38:22+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bugs/" itemprop="url" rel="index">
+                    <span itemprop="name">bugs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/09/解决ie6、ie7下float-right换行的问题.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/03/09/解决ie6、ie7下float-right换行的问题.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2017/03/09/解决ie6、ie7下float-right换行的问题.html" class="leancloud_visitors" data-flag-title="解决ie6、ie7下float:right换行的问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="IE7总是可以给人惊喜"><a href="#IE7总是可以给人惊喜" class="headerlink" title="IE7总是可以给人惊喜"></a>IE7总是可以给人惊喜</h2><p>html结构如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"link-wrap"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"forget-pwd"</span> <span class="attr">href</span>=<span class="string">"./plugins/shunde/forget_password.html"</span>&gt;</span>忘记密码<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"register"</span> <span class="attr">href</span>=<span class="string">"./plugins/shunde/register.html"</span>&gt;</span>申请注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>css样式如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.link-wrap</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">240px</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">bottom</span>: <span class="number">25px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.link-wrap</span> <span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">text-decoration</span>: underline;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#4E8CB1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-id">#register</span> &#123;</div><div class="line">  <span class="attribute">float</span>: right;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>chrome及其它浏览器中的显示：<br><img src="http://p1.bqimg.com/567571/b811f492b442d9db.png" alt="chrome"><br>IE7中的显示：<br><img src="http://p1.bpimg.com/567571/f61a36038af35731.png" alt="IE7"><br>在一行足以放下所有元素的情况下，<code>float:right</code>的元素在IE7中出现了换行的问题。</p>
+<h2 id="how-to-fix？"><a href="#how-to-fix？" class="headerlink" title="how to fix？"></a>how to fix？</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/09/解决ie6、ie7下float-right换行的问题.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/06/seajs-遇到的问题.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1044,7 +1217,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1062,7 +1235,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1121,8 +1294,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

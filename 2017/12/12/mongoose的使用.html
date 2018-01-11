@@ -452,7 +452,7 @@
 <h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>新建mongoose.js，并编辑<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"><span class="keyword">var</span> db = mongoose.connect(<span class="string">'mongodb://localhost/test'</span>);</div><div class="line">db.connection.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'数据库test连接失败：'</span> + error);</div><div class="line">&#125;);</div><div class="line">db.connection.on(<span class="string">'open'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'数据库test连接成功'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>打开一个终端，开启mongodb服务：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod</div></pre></td></tr></table></figure></p>
 <p>再打开一个终端，运行mongoose.js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">node mongoose.js</div><div class="line">&lt;!--成功后便会输出：数据库<span class="built_in">test</span>连接成功--&gt;</div></pre></td></tr></table></figure></p>
-<h3 id="Schema-Model"><a href="#Schema-Model" class="headerlink" title="Schema/Model"></a>Schema/Model</h3><p>1.Schema: 数据库集合的结构对象（一个Schema对应一个collection），定义document文档结构<br>2.Model: 由Schema构建而成，可操作数据库<br>继续编辑mongoose.js，在数据库连接成功的情况下，在数据库test中新建一个集合test1<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> TestSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</div><div class="line"> <span class="attr">name</span>: &#123;<span class="attr">type</span>: <span class="built_in">String</span>&#125;,</div><div class="line"> <span class="attr">age</span>: &#123;<span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">default</span>: <span class="number">0</span>&#125;,</div><div class="line"> <span class="attr">email</span>: &#123;<span class="attr">type</span>: <span class="built_in">String</span>&#125;,</div><div class="line"> <span class="attr">time</span>: &#123;<span class="attr">type</span>: <span class="built_in">Date</span>, <span class="attr">default</span>: <span class="built_in">Date</span>.now&#125;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> TestModel = db.model(<span class="string">'test1'</span>, TestSchema);</div><div class="line">&lt;!--集合名称，集合的结构对象--&gt;</div><div class="line">&lt;!--Document文档（关联数组式的对象）&lt; Collection对象 &lt; 数据库--&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="Schema-Model"><a href="#Schema-Model" class="headerlink" title="Schema/Model"></a>Schema/Model</h3><p>1.Schema: 数据库集合的结构对象（一个Schema对应一个collection），定义document文档结构<br>2.Model: 由Schema构建而成，可操作数据库<br>继续编辑mongoose.js，在数据库连接成功的情况下，在数据库test中新建一个集合test1<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> TestSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</div><div class="line"> <span class="attr">name</span>: &#123;<span class="attr">type</span>: <span class="built_in">String</span>&#125;,</div><div class="line"> <span class="attr">age</span>: &#123;<span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">default</span>: <span class="number">0</span>&#125;,</div><div class="line"> <span class="attr">email</span>: &#123;<span class="attr">type</span>: <span class="built_in">String</span>&#125;,</div><div class="line"> <span class="attr">time</span>: &#123;<span class="attr">type</span>: <span class="built_in">Date</span>, <span class="attr">default</span>: <span class="built_in">Date</span>.now&#125;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> TestModel = db.model(<span class="string">'test1'</span>, TestSchema);</div><div class="line"><span class="xml"><span class="comment">&lt;!--集合名称，集合的结构对象--&gt;</span></span></div><div class="line"><span class="comment">&lt;!--Document文档（关联数组式的对象）&lt; Collection对象 &lt; 数据库--&gt;</span></div></pre></td></tr></table></figure></p>
 <h4 id="Model数据插入"><a href="#Model数据插入" class="headerlink" title="Model数据插入"></a>Model数据插入</h4><p>插入保存一组数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">TestModel.create([</div><div class="line">&#123;<span class="attr">name</span>: <span class="string">'mogu'</span>, <span class="attr">age</span>: <span class="number">8</span>&#125;,</div><div class="line">&#123;<span class="attr">name</span>: <span class="string">'lly'</span>, <span class="attr">age</span>: <span class="number">9</span>&#125;,</div><div class="line">&#123;<span class="attr">name</span>: <span class="string">'nobody'</span>, <span class="attr">age</span>: <span class="number">38</span>, <span class="attr">email</span>: <span class="string">'123@qq.com'</span>&#125;</div><div class="line">], <span class="function"><span class="keyword">function</span>(<span class="params">error, docs</span>) </span>&#123;</div><div class="line"><span class="keyword">if</span>(error) &#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'error: '</span> + error);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'save ok'</span>);</div><div class="line"> <span class="built_in">console</span>.log(docs);</div><div class="line">&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <h4 id="find-数据查询"><a href="#find-数据查询" class="headerlink" title="find 数据查询"></a>find 数据查询</h4><p>mongoose提供了find、findOne和findById方法用于文档查询。<br>基本语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">model.find(Conditions, fields, options, callback(err, doc));</div></pre></td></tr></table></figure></p>
@@ -535,6 +535,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/01/11/拼多多面试.html" rel="prev" title="拼多多面试">
+                拼多多面试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -607,7 +611,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -625,7 +629,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -700,8 +704,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
