@@ -105,19 +105,18 @@
 
 
 
-<meta name="description" content="基本用法1.setTimeout指定延迟后调用函数2.setInterval以指定周期调用函数setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。
-JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在未来的某个时间执行，而具体执行时机是不能保证的">
+<meta name="description" content="基本用法1.setTimeout指定延迟后调用函数2.setInterval以指定周期调用函数setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。 JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在未来的某个时间执行，而具体执行时机是不能保证的">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="有关setTimeout和setInterval">
 <meta property="og:url" content="http://yoursite.com/2017/03/29/有关setTimeout和setInterval.html">
 <meta property="og:site_name" content="蘑菇小姐会开花">
-<meta property="og:description" content="基本用法1.setTimeout指定延迟后调用函数2.setInterval以指定周期调用函数setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。
-JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在未来的某个时间执行，而具体执行时机是不能保证的">
-<meta property="og:updated_time" content="2017-05-05T07:29:17.000Z">
+<meta property="og:description" content="基本用法1.setTimeout指定延迟后调用函数2.setInterval以指定周期调用函数setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。 JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在未来的某个时间执行，而具体执行时机是不能保证的">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-05-05T07:29:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有关setTimeout和setInterval">
-<meta name="twitter:description" content="基本用法1.setTimeout指定延迟后调用函数2.setInterval以指定周期调用函数setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。
-JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在未来的某个时间执行，而具体执行时机是不能保证的">
+<meta name="twitter:description" content="基本用法1.setTimeout指定延迟后调用函数2.setInterval以指定周期调用函数setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。 JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在未来的某个时间执行，而具体执行时机是不能保证的">
 
 
 
@@ -444,15 +443,15 @@ JavaScript是运行在单线程的环境中，定时器仅仅是计划代码在�
       
         <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>1.setTimeout指定延迟后调用函数<br>2.setInterval以指定周期调用函数<br>setTimeout和setInterval，将指定的代码移出本次执行，等到下一轮事件轮询时，再检查是否到了指定的时间。如果到了，就执行对应的代码；如果不到，就等到再下一轮事件轮询时重新判断。</p>
 <p><strong>JavaScript是运行在单线程的环境中</strong>，定时器仅仅是<strong>计划</strong>代码在未来的某个时间执行，而<strong>具体执行时机是不能保证的</strong>。</p>
-<h2 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;, timer);</div></pre></td></tr></table></figure>
+<h2 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;, timer);</span><br></pre></td></tr></table></figure>
 <p>为了确保两次执行之间有固定的间隔，可以不用setInterval，而是每次执行结束后，使用setTimeout指定下一次执行的具体时间。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setTimeout(someTask, <span class="number">100</span>);</div><div class="line">veryLongTask();</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(someTask, <span class="number">100</span>);</span><br><span class="line">veryLongTask();</span><br></pre></td></tr></table></figure>
 <p>setTimeout指定100ms以后运行someTask，但是，如果后面的veryLongTask函数运行时间很长，过了100ms还没结束，那someTask就得等到veryLongTask运行结束才执行。<br><a id="more"></a> </p>
-<h2 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval"></a>setInterval</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;, interval);</div></pre></td></tr></table></figure>
+<h2 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval"></a>setInterval</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;, interval);</span><br></pre></td></tr></table></figure>
 <p>setInterval并不能保证两个函数之间的调用的间隔一定是与interval相符合的时间，周期会受function执行时间影响。<br>setInterval指定的是”开始执行之间的间隔“，并不考虑每次任务执行本身所消耗的时间。因此实际上，两次执行之间的间隔会小于指定的时间。比如，setInterval指定每100ms执行一次，每次执行需要5ms，那么第一次执行结束后95毫秒，第二次执行就会开始。如果某次执行耗时特别长，比如需要105毫秒，那么它结束后，下一次执行就会立即开始。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</div><div class="line">&#125;, <span class="number">1000</span>);</div><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  sleeping(<span class="number">3000</span>);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  sleeping(<span class="number">3000</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <p>setInterval要求每隔1s输出一个2，但是sleeping要3s才能完成，就会导致在sleeping完成以后连续输出两个2，然后开始每隔1s输出一个2。<br><strong>setInterval具有累积效应</strong>，如果某个操作特别耗时，超过了setInterval的时间间隔，排在后面的操作会被累积起来，然后在很短的时间内连续触发，可能会造成性能问题。</p>
-<h2 id="更多请参考："><a href="#更多请参考：" class="headerlink" title="更多请参考："></a>更多请参考：</h2><p><a href="http://www.cnblogs.com/dolphinX/archive/2013/04/05/2784933.html" target="_blank" rel="external">setTimeout 和setInterval 何时被调用执行</a><br><a href="http://qingbob.com/difference-between-settimeout-setinterval/" target="_blank" rel="external">你真的了解setTimeout 和setInterval 吗</a><br><a href="http://javascript.ruanyifeng.com/advanced/timer.html" target="_blank" rel="external">定时器-阮一峰</a></p>
+<h2 id="更多请参考："><a href="#更多请参考：" class="headerlink" title="更多请参考："></a>更多请参考：</h2><p><a href="http://www.cnblogs.com/dolphinX/archive/2013/04/05/2784933.html" target="_blank" rel="noopener">setTimeout 和setInterval 何时被调用执行</a><br><a href="http://qingbob.com/difference-between-settimeout-setinterval/" target="_blank" rel="noopener">你真的了解setTimeout 和setInterval 吗</a><br><a href="http://javascript.ruanyifeng.com/advanced/timer.html" target="_blank" rel="noopener">定时器-阮一峰</a></p>
 
       
     </div>

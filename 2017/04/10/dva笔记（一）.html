@@ -105,20 +105,19 @@
 
 
 
-<meta name="description" content="基本概念数据流向user/browser –dispatch–&amp;gt; action —-&amp;gt; reducer —-&amp;gt; state —-&amp;gt; componentuser/browser –dispatch–&amp;gt; action —-&amp;gt; effect —-&amp;gt; state —-&amp;gt; component
-Models1.state 数据状态。2.actiondispatc">
+<meta name="description" content="基本概念数据流向user/browser –dispatch–&amp;gt; action —-&amp;gt; reducer —-&amp;gt; state —-&amp;gt; componentuser/browser –dispatch–&amp;gt; action —-&amp;gt; effect —-&amp;gt; state —-&amp;gt; component Models1.state 数据状态。2.actiondispatc">
+<meta name="keywords" content="dva">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dva笔记（一）">
 <meta property="og:url" content="http://yoursite.com/2017/04/10/dva笔记（一）.html">
 <meta property="og:site_name" content="蘑菇小姐会开花">
-<meta property="og:description" content="基本概念数据流向user/browser –dispatch–&amp;gt; action —-&amp;gt; reducer —-&amp;gt; state —-&amp;gt; componentuser/browser –dispatch–&amp;gt; action —-&amp;gt; effect —-&amp;gt; state —-&amp;gt; component
-Models1.state 数据状态。2.actiondispatc">
+<meta property="og:description" content="基本概念数据流向user/browser –dispatch–&amp;gt; action —-&amp;gt; reducer —-&amp;gt; state —-&amp;gt; componentuser/browser –dispatch–&amp;gt; action —-&amp;gt; effect —-&amp;gt; state —-&amp;gt; component Models1.state 数据状态。2.actiondispatc">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="http://i2.muimg.com/567571/a506042f19a32186.png">
-<meta property="og:updated_time" content="2017-05-05T07:29:45.000Z">
+<meta property="og:updated_time" content="2017-05-05T07:29:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dva笔记（一）">
-<meta name="twitter:description" content="基本概念数据流向user/browser –dispatch–&amp;gt; action —-&amp;gt; reducer —-&amp;gt; state —-&amp;gt; componentuser/browser –dispatch–&amp;gt; action —-&amp;gt; effect —-&amp;gt; state —-&amp;gt; component
-Models1.state 数据状态。2.actiondispatc">
+<meta name="twitter:description" content="基本概念数据流向user/browser –dispatch–&amp;gt; action —-&amp;gt; reducer —-&amp;gt; state —-&amp;gt; componentuser/browser –dispatch–&amp;gt; action —-&amp;gt; effect —-&amp;gt; state —-&amp;gt; component Models1.state 数据状态。2.actiondispatc">
 <meta name="twitter:image" content="http://i2.muimg.com/567571/a506042f19a32186.png">
 
 
@@ -445,7 +444,7 @@ Models1.state 数据状态。2.actiondispatc">
 
       
         <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="数据流向"><a href="#数据流向" class="headerlink" title="数据流向"></a>数据流向</h3><p>user/browser –dispatch–&gt; action —-&gt; reducer —-&gt; state —-&gt; component<br>user/browser –dispatch–&gt; action —-&gt; effect —-&gt; state —-&gt; component<br><img src="http://i2.muimg.com/567571/a506042f19a32186.png" alt="databse"></p>
-<h3 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h3><p>1.state<br> 数据状态。<br>2.action<br>dispatch函数调用一个action，从而改变对应的数据，action必须带有type属性指明具体的行为。<br>3.dispatch<br>触发action的函数。<br>在dva中，connect Model的组件通过props可以访问到dispatch，可以调用Model中的Reducer或者Effects。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dispatch(&#123;</div><div class="line">  type: &apos;add&apos;, // 如果在model外调用，需要添加namespace</div><div class="line">  payload: &#123;&#125; //需要传递的信息</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h3><p>1.state<br> 数据状态。<br>2.action<br>dispatch函数调用一个action，从而改变对应的数据，action必须带有type属性指明具体的行为。<br>3.dispatch<br>触发action的函数。<br>在dva中，connect Model的组件通过props可以访问到dispatch，可以调用Model中的Reducer或者Effects。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dispatch(&#123;</span><br><span class="line">  type: &apos;add&apos;, // 如果在model外调用，需要添加namespace</span><br><span class="line">  payload: &#123;&#125; //需要传递的信息</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>4.reducer<br>一个纯函数，同样的输入必须获得同样的输出。<br>5.effect<br>副作用，异步操作。<br>6.subscription<br>订阅一个数据源，然后根据条件dispatch需要的action。<br>7.router<br>路由。<br>8.router components<br>路由组件。</p>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><a id="more"></a> 
 <h3 id="app-dva-opts"><a href="#app-dva-opts" class="headerlink" title="app = dva(opts)"></a>app = dva(opts)</h3><p>创建应用，返回dva实例。<br>opts：<br>    history：指定给路由用的history，默认是hashHistory。<br>    initialize：指定初始数据，优先级高于model中的state，默认是{}。</p>
@@ -670,7 +669,7 @@ Models1.state 数据状态。2.actiondispatc">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据流向"><span class="nav-number">1.1.</span> <span class="nav-text">数据流向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Models"><span class="nav-number">1.2.</span> <span class="nav-text">Models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-dva-opts"><span class="nav-number">2.1.</span> <span class="nav-text">app = dva(opts)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-use-hooks"><span class="nav-number">2.2.</span> <span class="nav-text">app.use(hooks)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-model-model"><span class="nav-number">2.3.</span> <span class="nav-text">app.model(model)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-unmodel-namespace"><span class="nav-number">2.4.</span> <span class="nav-text">app.unmodel(namespace)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-router-history-app-gt-RouterConfig"><span class="nav-number">2.5.</span> <span class="nav-text">app.router({history, app} => RouterConfig)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-start-selector"><span class="nav-number">2.6.</span> <span class="nav-text">app.start(selector?)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据流向"><span class="nav-number">1.1.</span> <span class="nav-text">数据流向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Models"><span class="nav-number">1.2.</span> <span class="nav-text">Models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">2.</span> <span class="nav-text">API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-dva-opts"><span class="nav-number">2.1.</span> <span class="nav-text">app = dva(opts)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-use-hooks"><span class="nav-number">2.2.</span> <span class="nav-text">app.use(hooks)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-model-model"><span class="nav-number">2.3.</span> <span class="nav-text">app.model(model)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-unmodel-namespace"><span class="nav-number">2.4.</span> <span class="nav-text">app.unmodel(namespace)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-router-history-app-gt-RouterConfig"><span class="nav-number">2.5.</span> <span class="nav-text">app.router({history, app} =&gt; RouterConfig)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#app-start-selector"><span class="nav-number">2.6.</span> <span class="nav-text">app.start(selector?)</span></a></li></ol></li></ol></div>
             
 
           </div>

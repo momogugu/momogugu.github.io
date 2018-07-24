@@ -105,31 +105,18 @@
 
 
 
-<meta name="description" content="安装1sudo npm install typescript -g
-编译1tsc hello.ts
-TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。
-原始数据类型布尔值，数值，字符串，null， undefined，symbol。
-布尔值使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。
-数值使">
+<meta name="description" content="安装1sudo npm install typescript -g 编译1tsc hello.ts TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。 原始数据类型布尔值，数值，字符串，null， undefined，symbol。 布尔值使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。 数值使">
+<meta name="keywords" content="typescript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="typescript相关">
 <meta property="og:url" content="http://yoursite.com/2017/07/05/typescript相关.html">
 <meta property="og:site_name" content="蘑菇小姐会开花">
-<meta property="og:description" content="安装1sudo npm install typescript -g
-编译1tsc hello.ts
-TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。
-原始数据类型布尔值，数值，字符串，null， undefined，symbol。
-布尔值使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。
-数值使">
+<meta property="og:description" content="安装1sudo npm install typescript -g 编译1tsc hello.ts TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。 原始数据类型布尔值，数值，字符串，null， undefined，symbol。 布尔值使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。 数值使">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-07-20T03:27:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="typescript相关">
-<meta name="twitter:description" content="安装1sudo npm install typescript -g
-编译1tsc hello.ts
-TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。
-原始数据类型布尔值，数值，字符串，null， undefined，symbol。
-布尔值使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。
-数值使">
+<meta name="twitter:description" content="安装1sudo npm install typescript -g 编译1tsc hello.ts TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。 原始数据类型布尔值，数值，字符串，null， undefined，symbol。 布尔值使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。 数值使">
 
 
 
@@ -454,8 +441,8 @@ TypeScript只会进行静态检查，如果发现有错误，编译的时候就�
       
 
       
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install typescript -g</div></pre></td></tr></table></figure>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsc hello.ts</div></pre></td></tr></table></figure>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install typescript -g</span><br></pre></td></tr></table></figure>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc hello.ts</span><br></pre></td></tr></table></figure>
 <p>TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。</p>
 <h2 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h2><p>布尔值，数值，字符串，null， undefined，symbol。</p>
 <h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><p>使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。</p>
@@ -468,7 +455,7 @@ TypeScript只会进行静态检查，如果发现有错误，编译的时候就�
 <h2 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h2><p>只能访问此联合类型的所有类型里共有的属性或方法。<br>联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型。</p>
 <h2 id="对象的类型－接口"><a href="#对象的类型－接口" class="headerlink" title="对象的类型－接口"></a>对象的类型－接口</h2><p>赋值的时候，变量的形状必须和接口的形状保持一致，存在可选属性，但不允许添加未定义的属性。<br>一旦定义了任意属性，那么确定属性和可选属性都必须是它的子属性。<br>只读的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候。<br><a id="more"></a></p>
 <h2 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h2><p>［类型＋方括号］<br>数组的项中不允许出现其他的类型</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.gitbook.com/book/xcatliu/typescript-tutorial/details" target="_blank" rel="external">TypeScript 入门教程</a><br><a href="https://github.com/hstarorg/HstarDoc/blob/master/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3/TypeScript%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6tsconfig%E7%AE%80%E6%9E%90.md" target="_blank" rel="external">TypeScript配置文件tsconfig简析</a></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.gitbook.com/book/xcatliu/typescript-tutorial/details" target="_blank" rel="noopener">TypeScript 入门教程</a><br><a href="https://github.com/hstarorg/HstarDoc/blob/master/%E5%89%8D%E7%AB%AF%E7%9B%B8%E5%85%B3/TypeScript%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6tsconfig%E7%AE%80%E6%9E%90.md" target="_blank" rel="noopener">TypeScript配置文件tsconfig简析</a></p>
 
       
     </div>
