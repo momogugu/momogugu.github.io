@@ -321,6 +321,180 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/06/redux.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/08/06/redux.html" itemprop="url">
+                  redux
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-06T21:24:21+08:00">
+                2018-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/06/redux.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/08/06/redux.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2018/08/06/redux.html" class="leancloud_visitors" data-flag-title="redux">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="state-amp-actions-amp-reducer-amp-subscriptions"><a href="#state-amp-actions-amp-reducer-amp-subscriptions" class="headerlink" title="state&amp;actions&amp;reducer&amp;subscriptions"></a>state&amp;actions&amp;reducer&amp;subscriptions</h2><ul>
+<li><p><strong>state</strong> holds your js apps state.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	todos: [&#123;</span><br><span class="line">		text: <span class="string">'sleeping'</span>,</span><br><span class="line">		completed: <span class="literal">true</span></span><br><span class="line">	&#125;, &#123;</span><br><span class="line">		text: <span class="string">'reading'</span>,</span><br><span class="line">		completed: <span class="literal">false</span></span><br><span class="line">	&#125;],</span><br><span class="line">	visibilityFilter: <span class="string">'SHOW_COMPLETED'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>actions</strong> are called by your app.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	type: <span class="string">'ADD_TODO'</span>,</span><br><span class="line">	text: <span class="string">'take some rest'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>reducers</strong> handle the transformations between actions &amp; store.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">todos</span>(<span class="params">state = &#123;&#125;, action</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'ADD_TODO'</span>:</span><br><span class="line">		<span class="keyword">return</span> state.concat(&#123;</span><br><span class="line">			text: action.text,</span><br><span class="line">			completed: <span class="literal">false</span></span><br><span class="line">		&#125;)</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'TOGGLE_TODO'</span>:</span><br><span class="line">		<span class="keyword">return</span> state.map(<span class="function">(<span class="params">todo, index</span>) =&gt;</span> action.index === index ? &#123;...todo, <span class="attr">completed</span>: !todo.completed&#125; : todo)</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">		<span class="keyword">return</span> state</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>subscriptions</strong> listen for changes to the store.</p>
+</li>
+</ul>
+<h2 id="三原则"><a href="#三原则" class="headerlink" title="三原则"></a>三原则</h2><ol>
+<li>the single immutable state tree.</li>
+<li>describing state changes with actions.<br>state 只读，需要通过dispatch actions 来改变state。</li>
+<li>a pure function reducer describe state mutations.<br>接受prevState 和 action，返回nextState。</li>
+</ol>
+<p><strong>pure and impure functions</strong></p>
+<p>纯函数 输入决定输出，不会改变输入的内容<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sliceArr</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x.slice(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>非纯函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">spliceArr</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x.splice(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Store"><a href="#Store" class="headerlink" title="Store"></a>Store</h2><ol>
+<li>holds the current application state object.<br><strong>getState()</strong></li>
+<li>allows you to dispatch actions.<br><strong>dispatch()</strong></li>
+<li>when you create it, you need to specify the reducer that tells how state is updated with actions.<br><strong>subscribe()</strong></li>
+</ol>
+<h3 id="createStore"><a href="#createStore" class="headerlink" title="createStore"></a>createStore</h3><p>接受一个参数reducer<br><strong>getState</strong> 返回当前的state。<br><strong>subscribe</strong> 接受一个参数listener，返回一个unsubscribe方法。<br><strong>dispatch</strong> 接受一个action为参数，调用reducer方法，生成新的state。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> createStore = <span class="function"><span class="params">reducer</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">let</span> state;</span><br><span class="line">	<span class="keyword">let</span> listeners = [];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> getState = <span class="function"><span class="params">()</span> =&gt;</span> state</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">const</span> dispatch = <span class="function">(<span class="params">action</span>) =&gt;</span> &#123;</span><br><span class="line">		state = reducer(state, action);</span><br><span class="line">		listeners.forEach(<span class="function"><span class="params">listener</span> =&gt;</span> listener())</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">const</span> subsrcibe = <span class="function">(<span class="params">listener</span>) =&gt;</span> &#123;</span><br><span class="line">		listeners.push(listener)</span><br><span class="line">		<span class="comment">// 返回一个方法unsubscribe</span></span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">		 	listeners = listeners.filter(<span class="function"><span class="params">l</span> =&gt;</span> l !== listener)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// initial state</span></span><br><span class="line">	dispatch(&#123;&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123; getState, dispatch, subscribe&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers"></a>combineReducers</h3><p><strong>reducer composition</strong> calls existing reducers to manage their parts of the state, then combine the parts into a single state object.<br>接受reducers作为参数，返回一个reducer function。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// reducer composition</span></span><br><span class="line"><span class="keyword">const</span> todoApp = <span class="function">(<span class="params">state=&#123;&#125;, action</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="comment">// todos/visibilityFilter reducer </span></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		todos: todos(state.todos, action),</span><br><span class="line">		visibilityFilter: visibilityFilter(state.visibilityFilter, action)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*combineReducers </span></span><br><span class="line"><span class="comment">*接受一个参数 reducers (object)</span></span><br><span class="line"><span class="comment">*返回一个reducer</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> combineReducers = <span class="function"><span class="params">reducers</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="comment">// reducer 接受两个参数state，action，返回一个新的state</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function">(<span class="params">state = &#123;&#125;, action</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="comment">// reduce 累加器</span></span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.keys(reducers).reduce(<span class="function">(<span class="params">nextState, key</span>) =&gt;</span> &#123;</span><br><span class="line">			nextState[key] = reducers[key](state[key], action)</span><br><span class="line">			<span class="keyword">return</span> nextState</span><br><span class="line">		&#125;, &#123;&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> todoApp = combineReducers(&#123; todos, visibilityFilter &#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="bindActionCreators"><a href="#bindActionCreators" class="headerlink" title="bindActionCreators"></a>bindActionCreators</h3><p>将action包装成直接可被调用的函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bindActionCreators = <span class="function">(<span class="params">actionCreators, dispatch</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Object</span>.keys(actionCreators).reduce(<span class="function">(<span class="params">total, key</span>) =&gt;</span> &#123;</span><br><span class="line">		total[key] = <span class="function">(<span class="params">...args</span>) =&gt;</span> dispatch(actionCreators[key](...args))</span><br><span class="line">	&#125;, &#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="todo-list-app"><a href="#todo-list-app" class="headerlink" title="todo list app"></a>todo list app</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--redux store--&gt;</span><br><span class="line"><span class="keyword">const</span> todo = <span class="function">(<span class="params">state = &#123;&#125;, action</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'ADD_TODO'</span>:</span><br><span class="line">			<span class="keyword">return</span> &#123;</span><br><span class="line">				id: action.id,</span><br><span class="line">				text: action.text,</span><br><span class="line">				completed: <span class="literal">false</span></span><br><span class="line">			&#125;;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'TOGGLE_TODO'</span>:</span><br><span class="line">			<span class="keyword">if</span>(state.id !== action.id) &#123;</span><br><span class="line">				<span class="keyword">return</span> state;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> &#123;</span><br><span class="line">				...state,</span><br><span class="line">				completed: !state.completed</span><br><span class="line">			&#125;;</span><br><span class="line">		<span class="keyword">default</span>: </span><br><span class="line">			<span class="keyword">return</span> state;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> todos = <span class="function">(<span class="params">state=[], action</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'ADD_TODO'</span>:</span><br><span class="line">			<span class="keyword">return</span> [...state,</span><br><span class="line">				todo(<span class="literal">undefined</span>, action)</span><br><span class="line">			];</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'TOGGLE_TODO'</span>:</span><br><span class="line">			<span class="keyword">return</span> state.map(<span class="function"><span class="params">t</span> =&gt;</span> todo(t, action))</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">return</span> state;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> visibilityFilter = <span class="function">(<span class="params">state=<span class="string">'show all'</span>, action</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">switch</span>(action.type) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'SET_VISIBLITY_FILTER'</span>:</span><br><span class="line">			<span class="keyword">return</span> action.filter;</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">return</span> state;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; combineReducers, createStore &#125; = Redux;</span><br><span class="line"><span class="keyword">const</span> todoApp = combineReducers(&#123; todos, visibilityFilter &#125;)</span><br><span class="line"><span class="keyword">const</span> store = createStore(todoApp)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--react jsx--&gt;</span><br><span class="line"><span class="keyword">let</span> nextTodoId = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> FilterLink = <span class="function">(<span class="params">&#123; filter, children, currentFilter &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span>(filter === currentFilter) &#123;</span><br><span class="line">		<span class="keyword">return</span> &lt;span&gt;&#123;children&#125;&lt;/span&gt;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &lt;a</span><br><span class="line">		href= '#'</span><br><span class="line">		onClick=&#123;e =&gt; &#123;</span><br><span class="line">			e.preventDefault();</span><br><span class="line">			store.dispatch(&#123;</span><br><span class="line">				type: 'SET_VISIBLITY_FILTER',</span><br><span class="line">				filter,</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;&#125;</span><br><span class="line">	&gt;</span><br><span class="line">		&#123;children&#125;</span><br><span class="line">	&lt;/a&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getVisibleTodos = <span class="function">(<span class="params">todos, filter</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">switch</span>(filter) &#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'show_all'</span>:</span><br><span class="line">			<span class="keyword">return</span> todos;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'show_active'</span>:</span><br><span class="line">			<span class="keyword">return</span> todos.filter(<span class="function"><span class="params">t</span> =&gt;</span> !t.completed);</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'show_completed'</span>:</span><br><span class="line">			<span class="keyword">return</span> todos.filter(<span class="function"><span class="params">t</span> =&gt;</span> t.completed);</span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">return</span> todos</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TodoApp</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		<span class="keyword">const</span> &#123; todos, visibilityFilter&#125; = <span class="keyword">this</span>.props</span><br><span class="line">		<span class="keyword">const</span> visibleTodos = getVisibleTodos(todos, visibilityFilter)</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			&lt;div&gt;</span><br><span class="line">				&lt;input ref=&#123;node =&gt; &#123;</span><br><span class="line">					<span class="keyword">this</span>.input = node</span><br><span class="line">				&#125;&#125;/&gt;</span><br><span class="line">				&lt;button onClick=&#123;() =&gt; &#123;</span><br><span class="line">					store.dispatch(&#123;</span><br><span class="line">						type: <span class="string">'ADD_TODO'</span>,</span><br><span class="line">						text: <span class="keyword">this</span>.input.value,</span><br><span class="line">						id: nextTodoId ++</span><br><span class="line">					&#125;);</span><br><span class="line">					<span class="keyword">this</span>.input.value = <span class="string">''</span>;</span><br><span class="line">				&#125;&#125;&gt;ADD TODO&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">				&lt;ul&gt;</span></span><br><span class="line"><span class="regexp">					&#123;visibleTodos.map(todo =&gt; &lt;li key=&#123;todo.id&#125;</span></span><br><span class="line"><span class="regexp">						onClick=&#123;() =&gt; &#123;</span></span><br><span class="line"><span class="regexp">							store.dispatch(&#123;</span></span><br><span class="line"><span class="regexp">								type: 'TOGGLE_TODO',</span></span><br><span class="line"><span class="regexp">								id: todo.id</span></span><br><span class="line"><span class="regexp">							&#125;);</span></span><br><span class="line"><span class="regexp">						&#125;&#125;</span></span><br><span class="line"><span class="regexp">						style=&#123;&#123;</span></span><br><span class="line"><span class="regexp">							textDecoration: todo.completed ? 'line-through' : 'none'</span></span><br><span class="line"><span class="regexp">						&#125;&#125;</span></span><br><span class="line"><span class="regexp">					&gt;</span></span><br><span class="line"><span class="regexp">						&#123;todo.text&#125;</span></span><br><span class="line"><span class="regexp">					&lt;/</span>li&gt;)&#125;</span><br><span class="line">				&lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">				&lt;p&gt;</span></span><br><span class="line"><span class="regexp">					show: </span></span><br><span class="line"><span class="regexp">					&lt;FilterLink filter='show_all' currentFilter=&#123;visibilityFilter&#125;&gt;All&lt;/</span>FilterLink&gt;</span><br><span class="line">					&lt;FilterLink filter=<span class="string">'show_active'</span> currentFilter=&#123;visibilityFilter&#125;&gt;Active&lt;<span class="regexp">/FilterLink&gt; </span></span><br><span class="line"><span class="regexp">					&lt;FilterLink filter='show_completed' currentFilter=&#123;visibilityFilter&#125;&gt;Completed&lt;/</span>FilterLink&gt; </span><br><span class="line">				&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">			&lt;/</span>div&gt;</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> render = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	ReactDOM.render(</span><br><span class="line">		&lt;TodoApp</span><br><span class="line">			&#123;...store.getState()&#125;</span><br><span class="line">		/&gt;,</span><br><span class="line">		<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line">store.subscribe(render)</span><br><span class="line">render()</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/11/新年快乐哇.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1909,185 +2083,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/webpack-笔记.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="mogu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="蘑菇小姐会开花">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/12/webpack-笔记.html" itemprop="url">
-                  webpack 笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T14:54:14+08:00">
-                2017-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/notes/" itemprop="url" rel="index">
-                    <span itemprop="name">notes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/12/webpack-笔记.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/05/12/webpack-笔记.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2017/05/12/webpack-笔记.html" class="leancloud_visitors" data-flag-title="webpack 笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="基本配置项"><a href="#基本配置项" class="headerlink" title="基本配置项"></a>基本配置项</h2><h3 id="entry-和-output"><a href="#entry-和-output" class="headerlink" title="entry 和 output"></a>entry 和 output</h3><p><code>entry</code>: 入口文件，一般入口文件关注整体流程，而非入口文件关注某一部分的实现。<code>output.path</code>: 指定输出路径<br><code>output.filename</code>: </p>
-<ul>
-<li>name: 模块名称</li>
-<li>hash: 模块编译后的（整体）hash值，编译后文件hash值一样</li>
-<li>chunkhash: 分片的hash值，编译后文件hash值不同，即每一个分片的hash都不一样<br><code>output.publicPath</code>: 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换。<br>单一入口文件情况下：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'src/index.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span>,</span><br><span class="line">    path: <span class="string">'./dist/'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>多个入口文件情况下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">  <span class="string">"index"</span>: <span class="string">'src/index.js'</span>,</span><br><span class="line">  <span class="string">"login/login"</span>: <span class="string">'src/login/login.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'[name]-[hash].js'</span>,</span><br><span class="line">    <span class="comment">// filename: '[name]-[chunkhash].js',</span></span><br><span class="line">    path: <span class="string">'./dist/'</span></span><br><span class="line">    <span class="comment">// 输出文件中login.js位于dist/login目录下</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h2><p>将代码拆分后进行异步加载，但是不会自动提取公共模块的代码。</p>
-<h3 id="定义分割点"><a href="#定义分割点" class="headerlink" title="定义分割点"></a>定义分割点</h3><p>分割点表示代码在此处被分割成两个独立的文件，有两种方法。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/12/webpack-笔记.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2137,7 +2132,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
