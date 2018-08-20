@@ -321,6 +321,188 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/05/typescript相关.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/05/typescript相关.html" itemprop="url">
+                  typescript相关
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-05T20:37:02+08:00">
+                2017-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/05/typescript相关.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/07/05/typescript相关.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2017/07/05/typescript相关.html" class="leancloud_visitors" data-flag-title="typescript相关">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install typescript -g</span><br></pre></td></tr></table></figure>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tsc hello.ts</span><br></pre></td></tr></table></figure>
+<p>TypeScript只会进行静态检查，如果发现有错误，编译的时候就会报错，但还是会生成编译结果。</p>
+<h2 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h2><p>布尔值，数值，字符串，null， undefined，symbol。</p>
+<h3 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h3><p>使用boolean定义布尔值类型，构造函数Boolean创造的对象不是布尔值，而是一个Boolean对象。</p>
+<h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><p>使用number定义数值类型</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>使用string定义字符串类型<br><code>、</code>用来定义模板字符串，<code>${expr}</code> 用来在模版字符串中嵌入表达式。</p>
+<h3 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h3><p>void 可以表示没有任何返回值的函数，也可以赋值为undefined和null</p>
+<h3 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h3><p>undefined只能被赋值为undefined，null只能被赋值为null。<br>与void的区别是undefined和null是所有类型的子类型，可以赋值给其他类型的变量</p>
+<h2 id="任意值"><a href="#任意值" class="headerlink" title="任意值"></a>任意值</h2><p>任意值Any表示允许赋值为任意类型。<br>声明一个变量为任意值之后，对它的任何操作，返回的内容的类型都是任意值。<br>变量如果在声明的时候，未指定其类型，那么它会被识别为任意值类型。</p>
+<h2 id="类型推论"><a href="#类型推论" class="headerlink" title="类型推论"></a>类型推论</h2><p>如果没有明确的指定类型，TypeScript会依照类型推论的规则推断出一个类型。<br>如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查。</p>
+<h2 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h2><p>只能访问此联合类型的所有类型里共有的属性或方法。<br>联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型。</p>
+<h2 id="对象的类型－接口"><a href="#对象的类型－接口" class="headerlink" title="对象的类型－接口"></a>对象的类型－接口</h2><p>赋值的时候，变量的形状必须和接口的形状保持一致，存在可选属性，但不允许添加未定义的属性。<br>一旦定义了任意属性，那么确定属性和可选属性都必须是它的子属性。<br>只读的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/05/typescript相关.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/27/vue-js-笔记（一）.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1903,173 +2085,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/setMonth-setDate.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="mogu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="蘑菇小姐会开花">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/05/setMonth-setDate.html" itemprop="url">
-                  setMonth() & setDate()
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-05T09:54:09+08:00">
-                2017-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/bugs/" itemprop="url" rel="index">
-                    <span itemprop="name">bugs</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/05/setMonth-setDate.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/05/setMonth-setDate.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2017/04/05/setMonth-setDate.html" class="leancloud_visitors" data-flag-title="setMonth() & setDate()">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="setMonth"><a href="#setMonth" class="headerlink" title="setMonth()"></a>setMonth()</h2><p><img src="http://i2.muimg.com/4851/a463bc2d55b991e8.jpg" alt="setMonth"><br>月份0-11，日期如果不标准会自动调，将3.31 设置日期到 4月，但4月只有30天，没有31号，所以溢出了，js会自动将月份设到调到5月31号。<br>建议先将日期设置为比较小的日期，比如1号。</p>
-<h2 id="setDate"><a href="#setDate" class="headerlink" title="setDate()"></a>setDate()</h2><p><img src="http://i1.piimg.com/4851/d66503ab05b355e5.jpg" alt="setDate"><br>类似的，setDate时如果日期不标准js也会自动调整，如将4月30日设置为31日，但4月只有30天，所以会溢出一天，js会自动将日期设置往后调整对应的天数。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2119,7 +2134,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
