@@ -321,6 +321,179 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/ajax-重定向跨域问题.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/08/23/ajax-重定向跨域问题.html" itemprop="url">
+                  ajax 重定向跨域问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-23T21:58:01+08:00">
+                2018-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bugs/" itemprop="url" rel="index">
+                    <span itemprop="name">bugs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/23/ajax-重定向跨域问题.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/08/23/ajax-重定向跨域问题.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2018/08/23/ajax-重定向跨域问题.html" class="leancloud_visitors" data-flag-title="ajax 重定向跨域问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近遇到一个问题：<strong>一个页面发ajax请求到后端接口，这个后端接口返回302状态码，并重定向了另外一个域名的地址，此时出现跨域问题</strong></p>
+<p>ajax调用浏览器组件发起的请求和浏览器直接发起的请求有一定区别。<br>1.浏览器可以通过返回的http状态进行相应的操作，如访问一个页面，此页面重定向时，浏览器可以获取到重定向后的url然后进行转向。<br>2.对于ajax，ajax的目的就是无刷新的，所以对于服务器端进行了重定向时，ajax会获取到重定向状态值3xx和重定向url，然后再获取重定向的页面运行完后输出到客户端的html代码，并且返回200状态。</p>
+<p>上面的场景:<br>1.如果是浏览器发送请求到后端接口，后端接口重定向的话是给浏览器一个302的标示，并且给一个url，浏览器拿到标示后会把地址栏的url换成后端返回的url，完成重定向动作。<br>2.如果是ajax的话，请求后端接口，后端返回302和一个url，那么ajax会根据htpp的code码做出相对应的动作。接受到的是302那么ajax会再次发起一个请求，去请求服务端302返回的url，那么此时就跨域了。</p>
+<p>解决的方式是ajax在第一次得到相应处理后需要js做一次location.href跳转，目的是让浏览器去请求重定向的接口而不是ajax。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/23/ajax-重定向跨域问题.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/19/redux源码解读.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1913,182 +2086,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/移动web开发.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="mogu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="蘑菇小姐会开花">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/14/移动web开发.html" itemprop="url">
-                  移动web开发
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T14:40:13+08:00">
-                2017-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/notes/" itemprop="url" rel="index">
-                    <span itemprop="name">notes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/14/移动web开发.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/07/14/移动web开发.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2017/07/14/移动web开发.html" class="leancloud_visitors" data-flag-title="移动web开发">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>做了一段时间的手机端页面，碰到了很多问题，列举如下。<br>1.<code>&lt;input type=&quot;date&quot; value=&quot;2017-07-13&quot;/&gt;</code>日期组件<br>iOS和安卓均不支持placeholder。默认指定为text类型，当用户focus的时候自动把type类型改变为date。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"Date"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">onfocus</span>=<span class="string">"(this.type='date')"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>安卓对日期组件的展现和交互不尽相同，低版本的安卓系统不能支持value，<a href="https://stackoverflow.com/questions/17022744/android-input-date-field-value-not-clearing" target="_blank" rel="noopener">问题如此</a>。<br>最后我的解决办法是，替换了一个新的日期组件zepto-mdater，但是该组件会与touch.js产生冲突，多次监听tap事件或点击穿透，因此，在与touch.js共用时，需要删除源代码中对tap事件的封装。此外，该组件在红米手机上切换日月时会出现日期重叠，猜测也是受tap事件影响，目前还未确认解决方案。<br>相关问题：<br><a href="https://gxnotes.com/article/41705.html" target="_blank" rel="noopener">在iOS/Android上从web-app调用本机日期选择器</a><br><a href="http://www.itkeyword.com/doc/9971418970233778x126/android-input-date-field-value-not-clearing" target="_blank" rel="noopener">android-input-date-field-value-not-clearing</a><br>相关笔记：<br><a href="http://suibobuzhuliu.github.io/2016/05/04/HTML5%20input%E7%B1%BB%E5%9E%8B%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" target="_blank" rel="noopener">html5 input类型踩坑纪录</a><br><a href="http://www.cnblogs.com/lvdabao/p/mobile-datepicker.html" target="_blank" rel="noopener">轻量级移动端日期组件</a><br><a href="https://segmentfault.com/a/1190000004534780" target="_blank" rel="noopener">基于zepto的移动端轻量级日期插件</a><br>2.白屏解决<br>css文件加载需要一些时间，在加载的过程中页面空白，可以考虑将css代码内联和前置。<br>首屏无实际的数据内容，等待异步加载数据再渲染页面导致白屏，可以在首屏直接同步渲染html，后续的滚屏等再采用异步请求数据和渲染html。<br>客户端渲染无力，在服务端，使用模版引擎渲染所有页面。<br>减少文件加载体积，如html压缩，js压缩。<br>相关笔记：<br><a href="http://ask.dcloud.net.cn/article/25" target="_blank" rel="noopener">提升HTML5的性能体验系列之一 避免切页白屏</a><br>3.flexbox布局<br>安卓4.0不支持display:-webkit-flex这种写法的弹性布局，但支持display:-webkit-box这种写法的布局，移动端采用弹性布局时，建议直接写display:-webkit-box系列的布局。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/14/移动web开发.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2133,7 +2135,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

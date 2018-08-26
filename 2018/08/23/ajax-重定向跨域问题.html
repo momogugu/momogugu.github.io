@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="casperjs," />
+  <meta name="keywords" content="js," />
 
 
 
@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="what’s it?casperjs 基于js语法规则的无头浏览器，可以完成模拟浏览器行为。模拟真实用户点击浏览器来浏览网页的行为，可以通过编写代码，来控制casperjs定向实现自己所需要的功能。 how to install 先装phantomjs  how to use">
-<meta name="keywords" content="casperjs">
+<meta name="description" content="最近遇到一个问题：一个页面发ajax请求到后端接口，这个后端接口返回302状态码，并重定向了另外一个域名的地址，此时出现跨域问题 ajax调用浏览器组件发起的请求和浏览器直接发起的请求有一定区别。1.浏览器可以通过返回的http状态进行相应的操作，如访问一个页面，此页面重定向时，浏览器可以获取到重定向后的url然后进行转向。2.对于ajax，ajax的目的就是无刷新的，所以对于服务器端进行了重定向">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="casperjs简介">
-<meta property="og:url" content="http://yoursite.com/2017/07/19/casperjs简介.html">
+<meta property="og:title" content="ajax 重定向跨域问题">
+<meta property="og:url" content="http://yoursite.com/2018/08/23/ajax-重定向跨域问题.html">
 <meta property="og:site_name" content="蘑菇小姐会开花">
-<meta property="og:description" content="what’s it?casperjs 基于js语法规则的无头浏览器，可以完成模拟浏览器行为。模拟真实用户点击浏览器来浏览网页的行为，可以通过编写代码，来控制casperjs定向实现自己所需要的功能。 how to install 先装phantomjs  how to use">
+<meta property="og:description" content="最近遇到一个问题：一个页面发ajax请求到后端接口，这个后端接口返回302状态码，并重定向了另外一个域名的地址，此时出现跨域问题 ajax调用浏览器组件发起的请求和浏览器直接发起的请求有一定区别。1.浏览器可以通过返回的http状态进行相应的操作，如访问一个页面，此页面重定向时，浏览器可以获取到重定向后的url然后进行转向。2.对于ajax，ajax的目的就是无刷新的，所以对于服务器端进行了重定向">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-08-01T12:09:06.000Z">
+<meta property="og:updated_time" content="2018-08-26T11:29:11.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="casperjs简介">
-<meta name="twitter:description" content="what’s it?casperjs 基于js语法规则的无头浏览器，可以完成模拟浏览器行为。模拟真实用户点击浏览器来浏览网页的行为，可以通过编写代码，来控制casperjs定向实现自己所需要的功能。 how to install 先装phantomjs  how to use">
+<meta name="twitter:title" content="ajax 重定向跨域问题">
+<meta name="twitter:description" content="最近遇到一个问题：一个页面发ajax请求到后端接口，这个后端接口返回302状态码，并重定向了另外一个域名的地址，此时出现跨域问题 ajax调用浏览器组件发起的请求和浏览器直接发起的请求有一定区别。1.浏览器可以通过返回的http状态进行相应的操作，如访问一个页面，此页面重定向时，浏览器可以获取到重定向后的url然后进行转向。2.对于ajax，ajax的目的就是无刷新的，所以对于服务器端进行了重定向">
 
 
 
@@ -144,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/19/casperjs简介.html"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/23/ajax-重定向跨域问题.html"/>
 
 
 
 
 
-  <title> casperjs简介 | 蘑菇小姐会开花 </title>
+  <title> ajax 重定向跨域问题 | 蘑菇小姐会开花 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -321,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/19/casperjs简介.html">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/ajax-重定向跨域问题.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="mogu">
@@ -345,7 +345,7 @@
             
             
               
-                casperjs简介
+                ajax 重定向跨域问题
               
             
           </h1>
@@ -360,8 +360,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-19T15:14:47+08:00">
-                2017-07-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-23T21:58:01+08:00">
+                2018-08-23
               </time>
             
 
@@ -383,8 +383,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/method/" itemprop="url" rel="index">
-                    <span itemprop="name">method</span>
+                  <a href="/categories/bugs/" itemprop="url" rel="index">
+                    <span itemprop="name">bugs</span>
                   </a>
                 </span>
 
@@ -402,8 +402,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/19/casperjs简介.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/07/19/casperjs简介.html" itemprop="commentsCount"></span>
+                <a href="/2018/08/23/ajax-重定向跨域问题.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/08/23/ajax-重定向跨域问题.html" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -412,7 +412,7 @@
 
           
           
-             <span id="/2017/07/19/casperjs简介.html" class="leancloud_visitors" data-flag-title="casperjs简介">
+             <span id="/2018/08/23/ajax-重定向跨域问题.html" class="leancloud_visitors" data-flag-title="ajax 重定向跨域问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -441,11 +441,22 @@
       
 
       
-        <h2 id="what’s-it"><a href="#what’s-it" class="headerlink" title="what’s it?"></a>what’s it?</h2><p>casperjs 基于js语法规则的无头浏览器，可以完成模拟浏览器行为。模拟真实用户点击浏览器来浏览网页的行为，可以通过编写代码，来控制casperjs定向实现自己所需要的功能。</p>
-<h2 id="how-to-install"><a href="#how-to-install" class="headerlink" title="how to install"></a>how to install</h2><ul>
-<li>先装phantomjs</li>
-</ul>
-<h2 id="how-to-use"><a href="#how-to-use" class="headerlink" title="how to use"></a>how to use</h2>
+        <p>最近遇到一个问题：<strong>一个页面发ajax请求到后端接口，这个后端接口返回302状态码，并重定向了另外一个域名的地址，此时出现跨域问题</strong></p>
+<p>ajax调用浏览器组件发起的请求和浏览器直接发起的请求有一定区别。<br>1.浏览器可以通过返回的http状态进行相应的操作，如访问一个页面，此页面重定向时，浏览器可以获取到重定向后的url然后进行转向。<br>2.对于ajax，ajax的目的就是无刷新的，所以对于服务器端进行了重定向时，ajax会获取到重定向状态值3xx和重定向url，然后再获取重定向的页面运行完后输出到客户端的html代码，并且返回200状态。</p>
+<p>上面的场景:<br>1.如果是浏览器发送请求到后端接口，后端接口重定向的话是给浏览器一个302的标示，并且给一个url，浏览器拿到标示后会把地址栏的url换成后端返回的url，完成重定向动作。<br>2.如果是ajax的话，请求后端接口，后端返回302和一个url，那么ajax会根据htpp的code码做出相对应的动作。接受到的是302那么ajax会再次发起一个请求，去请求服务端302返回的url，那么此时就跨域了。</p>
+<p>解决的方式是ajax在第一次得到相应处理后需要js做一次location.href跳转，目的是让浏览器去请求重定向的接口而不是ajax。<br><a id="more"></a><br>于是我就开始想如何将302拦截下来，自己做location.href跳转，由于我的项目用到了axios，我在axios的响应拦截器<code>axios.interceptors.response</code>中开始进行处理，但是怎么都得不到对应的 302 返回结果，最后搜到了<a href="http://fszer.github.io/2017/05/14/axios%E9%97%AE%E9%A2%98/" target="_blank" rel="noopener">这篇文章</a>。</p>
+<p>文章中提到了这个属性<code>maxRedirects</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// axios 在 node 端默认会自动重定向请求</span></span><br><span class="line"><span class="comment">// `maxRedirects` defines the maximum number of redirects to follow in node.js. </span></span><br><span class="line"> <span class="comment">// If set to 0, no redirects will be followed. </span></span><br><span class="line"> &#123;</span><br><span class="line">       maxRedirects: <span class="number">5</span>, <span class="comment">// default</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>我尝试去修改了这个属性，然而并没有实际效果，后来又搜到了<a href="https://github.com/axios/axios/issues/1341" target="_blank" rel="noopener">这篇issue</a>。<br>文章中提到在axios取到xhr的响应前，客户端已经完成了重定向的操作。</p>
+<blockquote>
+<p>Client side redirect is being done before axios ever get any response from XHR.</p>
+<p>You can’t handle redirects with XHR callbacks because the browser takes care of them automatically. You will only get back what at the redirected location.</p>
+</blockquote>
+<p>我的理解是，当服务器将302响应发给浏览器时，浏览器并不是直接进行ajax回调处理，而是先执行302重定向——从Response Headers中读取location信息，然后向location中的url发出请求，在收到这个请求的响应后才会进行ajax回调处理。<br>大致流程如下：<br>ajax -&gt; browser -&gt; server -&gt; 302 -&gt; browser(redirect) -&gt; server -&gt; browser -&gt; ajax callback<br>所以，在axios的响应中并不能拦截到302请求，于是我继续去看了<a href="https://github.com/axios/axios/issues/932" target="_blank" rel="noopener">这篇issue</a></p>
+<blockquote>
+<p>There is no library that could prevent the redirect. What you need to do on your server-side is distinguish between XHR requests and normal browser navigation requests and send either a 403 w/ JSON and specify the URL you want to redirect to in there or send a 302 if the request is being made by a browser navigation request. </p>
+</blockquote>
+<p>所以最后给出的解决方案是服务端区分ajax请求和浏览器请求，在ajax请求是返回403和需要重定向到的url，在浏览器请求时直接返回302跳转。或者前端直接访问该接口的url，而不要采用ajax。</p>
+
       
     </div>
 
@@ -489,7 +500,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/casperjs/" rel="tag"># casperjs</a>
+            <a href="/tags/js/" rel="tag"># js</a>
           
         </div>
       
@@ -502,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/14/移动web开发.html" rel="next" title="移动web开发">
-                <i class="fa fa-chevron-left"></i> 移动web开发
+              <a href="/2018/08/19/redux源码解读.html" rel="next" title="redux源码解读">
+                <i class="fa fa-chevron-left"></i> redux源码解读
               </a>
             
           </div>
@@ -511,10 +522,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/11/mongodb的使用.html" rel="prev" title="mongodb的使用">
-                mongodb的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,17 +570,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -651,22 +649,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#what’s-it"><span class="nav-number">1.</span> <span class="nav-text">what’s it?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-install"><span class="nav-number">2.</span> <span class="nav-text">how to install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-use"><span class="nav-number">3.</span> <span class="nav-text">how to use</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
@@ -800,7 +782,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 90504, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 90504, xid: "2017/07/19/casperjs简介.html"});
+		_hcwp.push({widget:"Stream", widget_id: 90504, xid: "2018/08/23/ajax-重定向跨域问题.html"});
 		
 
 		(function() {

@@ -321,6 +321,177 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/移动web开发.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/14/移动web开发.html" itemprop="url">
+                  移动web开发
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T14:40:13+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/14/移动web开发.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/07/14/移动web开发.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2017/07/14/移动web开发.html" class="leancloud_visitors" data-flag-title="移动web开发">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>做了一段时间的手机端页面，碰到了很多问题，列举如下。<br>1.<code>&lt;input type=&quot;date&quot; value=&quot;2017-07-13&quot;/&gt;</code>日期组件<br>iOS和安卓均不支持placeholder。默认指定为text类型，当用户focus的时候自动把type类型改变为date。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"Date"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">onfocus</span>=<span class="string">"(this.type='date')"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>安卓对日期组件的展现和交互不尽相同，低版本的安卓系统不能支持value，<a href="https://stackoverflow.com/questions/17022744/android-input-date-field-value-not-clearing" target="_blank" rel="noopener">问题如此</a>。<br>最后我的解决办法是，替换了一个新的日期组件zepto-mdater，但是该组件会与touch.js产生冲突，多次监听tap事件或点击穿透，因此，在与touch.js共用时，需要删除源代码中对tap事件的封装。此外，该组件在红米手机上切换日月时会出现日期重叠，猜测也是受tap事件影响，目前还未确认解决方案。<br>相关问题：<br><a href="https://gxnotes.com/article/41705.html" target="_blank" rel="noopener">在iOS/Android上从web-app调用本机日期选择器</a><br><a href="http://www.itkeyword.com/doc/9971418970233778x126/android-input-date-field-value-not-clearing" target="_blank" rel="noopener">android-input-date-field-value-not-clearing</a><br>相关笔记：<br><a href="http://suibobuzhuliu.github.io/2016/05/04/HTML5%20input%E7%B1%BB%E5%9E%8B%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" target="_blank" rel="noopener">html5 input类型踩坑纪录</a><br><a href="http://www.cnblogs.com/lvdabao/p/mobile-datepicker.html" target="_blank" rel="noopener">轻量级移动端日期组件</a><br><a href="https://segmentfault.com/a/1190000004534780" target="_blank" rel="noopener">基于zepto的移动端轻量级日期插件</a><br>2.白屏解决<br>css文件加载需要一些时间，在加载的过程中页面空白，可以考虑将css代码内联和前置。<br>首屏无实际的数据内容，等待异步加载数据再渲染页面导致白屏，可以在首屏直接同步渲染html，后续的滚屏等再采用异步请求数据和渲染html。<br>客户端渲染无力，在服务端，使用模版引擎渲染所有页面。<br>减少文件加载体积，如html压缩，js压缩。<br>相关笔记：<br><a href="http://ask.dcloud.net.cn/article/25" target="_blank" rel="noopener">提升HTML5的性能体验系列之一 避免切页白屏</a><br>3.flexbox布局<br>安卓4.0不支持display:-webkit-flex这种写法的弹性布局，但支持display:-webkit-box这种写法的布局，移动端采用弹性布局时，建议直接写display:-webkit-box系列的布局。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/14/移动web开发.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/05/typescript相关.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1912,184 +2083,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/10/dva笔记（一）.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="mogu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="蘑菇小姐会开花">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/10/dva笔记（一）.html" itemprop="url">
-                  dva笔记（一）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-10T11:16:01+08:00">
-                2017-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/notes/" itemprop="url" rel="index">
-                    <span itemprop="name">notes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/10/dva笔记（一）.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/10/dva笔记（一）.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2017/04/10/dva笔记（一）.html" class="leancloud_visitors" data-flag-title="dva笔记（一）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="数据流向"><a href="#数据流向" class="headerlink" title="数据流向"></a>数据流向</h3><p>user/browser –dispatch–&gt; action —-&gt; reducer —-&gt; state —-&gt; component<br>user/browser –dispatch–&gt; action —-&gt; effect —-&gt; state —-&gt; component<br><img src="http://i2.muimg.com/567571/a506042f19a32186.png" alt="databse"></p>
-<h3 id="Models"><a href="#Models" class="headerlink" title="Models"></a>Models</h3><p>1.state<br> 数据状态。<br>2.action<br>dispatch函数调用一个action，从而改变对应的数据，action必须带有type属性指明具体的行为。<br>3.dispatch<br>触发action的函数。<br>在dva中，connect Model的组件通过props可以访问到dispatch，可以调用Model中的Reducer或者Effects。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dispatch(&#123;</span><br><span class="line">  type: &apos;add&apos;, // 如果在model外调用，需要添加namespace</span><br><span class="line">  payload: &#123;&#125; //需要传递的信息</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>4.reducer<br>一个纯函数，同样的输入必须获得同样的输出。<br>5.effect<br>副作用，异步操作。<br>6.subscription<br>订阅一个数据源，然后根据条件dispatch需要的action。<br>7.router<br>路由。<br>8.router components<br>路由组件。</p>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/10/dva笔记（一）.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2134,7 +2132,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
