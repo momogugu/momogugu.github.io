@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[redux middleware]]></title>
+    <url>%2F2018%2F09%2F18%2Fredux-middleware.html</url>
+    <content type="text"><![CDATA[wrapping dispatch() to log actionslogger 中间件函数addLoggingToDispatch，接受一个store为参数，返回一个新的dispatch方法，将store.dispatch覆盖，并log出相对应的action和state信息。 the addLoggingToDispatch function takes the dispatch from the store and returns a new version of dispatch that logs every action and the state 12345678910111213141516171819202122232425262728const addLoggingToDispatch = (store) =&gt; &#123; const next = store.dispatch; if(!console.group) &#123; return next &#125; // 返回一个新的dispatch方法 // 在store.dispatch的基础上，log一些信息 return (action) =&gt; &#123; console.group(action.type); console.log('%c prev state', 'color: gray', store.getState()); console.log('%c action', 'color: blue', action); const returnValue = next(action); console.log('%c next state', store.getState()); console.groupEnd(action.type); return returnValue; &#125;&#125;&lt;!--引用logger中间件--&gt;const configureStore = () =&gt; &#123; const store = createStore(todoApp) if(process.env.NODE_ENV !== 'production') &#123; store.dispatch = addLoggingToDispatch(store) &#125; return store&#125; wrapping dispatch() to recognize promisepromise中间件redux 只能dispatch普通的对象，不能dispatch promise函数addLoggingToDispatch，接受一个store为参数，返回一个新的能处理promise的dispatch方法，。 a function addPromiseSupport() that takes the store and returns a version of dispatch that supports promises. 12345678910111213141516171819202122232425// promise action example// api.fetchTodos = new Promise(resolve =&gt; setTimeout(resolve, ms)).then(() =&gt; &#123;&#125;)const fetchTodos = filter =&gt; api.fetchTodos(filter).then(response =&gt; receiveTodos(filter, response))const addPromiseSupportToDispatch = (store) =&gt; &#123; const next = store.dispatch; return (action) =&gt; &#123; if(typeof action.then === 'function') &#123; return action.then(next); &#125; return next(action) &#125;&#125;&lt;!--引用promise中间件--&gt;const configureStore = () =&gt; &#123; const store = createStore(todoApp) // if(process.env.NODE_ENV !== 'production') &#123; // store.dispatch = addLoggingToDispatch(store) // &#125; store.dispatch = addPromiseSupportToDispatch(store) return store&#125; the middleware chain函数wrapDispatchWithMiddlewares，接受store和middlrwares[array]两个参数。 a function wrapDispatchWithMiddlewares() that takes the store as the first argument, and the array of middlewares as the second. 12345const wrapDispatchWithMiddlewares = (store, middlewares) =&gt; &#123; middlewares.forEach(middleware =&gt; store.dispatch = middleware(store) )&#125; 修改addLoggingToDispatch()和addPromiseSupportToDispatch()将next作为参数提取出来 123456789101112131415161718192021const logger = (store) =&gt; (next) =&gt; &#123; if(!console.group) &#123; return next &#125; return (action) =&gt; &#123; console.group(action.type); console.log('%c prev state', 'color: gray', store.getState()); console.log('%c action', 'color: blue', action); const returnValue = next(action); console.log('%c next state', store.getState()); console.groupEnd(action.type); return returnValue; &#125;&#125;const promise = (store) =&gt; (next) =&gt; (action) =&gt; &#123; if(typeof action.then === 'function') &#123; return action.then(next); &#125; return next(action)&#125; 再修改wrapDispatchWithMiddlewares()中间件的调用为store.dispatch = middleware(store)(store.dispatch) 12345678910111213141516171819const wrapDispatchWithMiddlewares = (store, middlewares) =&gt; &#123; // 复制&amp;颠倒middlewares middlewares.slice().reverse().forEach(middleware =&gt; store.dispatch = middleware(store)(store.dispatch) )&#125;const configureStore = () =&gt; &#123; const store = createStore(todoApp) const middlewares = [promise] if(process.env.NODE_ENV !== 'production') &#123; middlewares.push(logger) &#125; wrapDispatchWithMiddlewares(store, middlewares) return store&#125; Dispatching Actions Asynchronously with thunksthunk中间件支持dispatch thunks，和其他的中间件一样，它接受store、next、action作为参数。如果action是一个函数，则将dispatch传给action，直接调用store.dispatch(action)，否则返回next(action)。 Functions returned from other functions are often called thunks 123456789101112// thunk actionconst toggleTodo = id =&gt; (dispatch, getState) =&gt; &#123; return api.toggleTodo(id).then(response =&gt; &#123; dispatch(&#123; type: 'TOGGLE_TODO', response: normalize(response, schema.todo) &#125;) &#125;)&#125;const thunk = store =&gt; next =&gt; action =&gt; typeof action === 'function' ? action(store.dispatch, store.getState) : next(action)]]></content>
+      <categories>
+        <category>notes</category>
+      </categories>
+      <tags>
+        <tag>redux</tag>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[redux persisting the state to the local storage]]></title>
     <url>%2F2018%2F09%2F12%2Fredux-persisting-the-state-to-the-local-storage.html</url>
     <content type="text"><![CDATA[loadState()&amp;saveState()loadState()：按照对应的key: state，从localStorage中取出对应的字符串，将字符串解析成对应的JSONsaveState()：接受一个state，将其序列化为字符串，存入localStorage中1234567891011121314151617181920&lt;!--localStorage.js--&gt;export const loadState = () =&gt; &#123; try &#123; const serializedState = localStorage.getItem('state'); if(serializedState === null) &#123; return undefined; &#125; return JSON.parse(serializedState); &#125; catch (err) &#123; return undefined; &#125;&#125;export const saveState = (state) =&gt; &#123; try &#123; const serializedState = JSON.stringify(state); localStorage.setItem('state', serializedState); &#125; catch (err) &#123; // Ignore write errors &#125;&#125; Using localStorage.js123456789// 取const store = createStore(todoApp, loadState()) // 存store.subscribe(() =&gt; &#123; saveState(&#123; todos: store.getState().todos &#125;)&#125;) Throttling saveState()每一秒更新一次localStorage1234567import throttle from 'lodash/throttle'store.subscribe(throttle(() =&gt; &#123; saveState(&#123; todos: store.getState().todos &#125;)&#125;, 1000))]]></content>
@@ -8,8 +20,8 @@
         <category>notes</category>
       </categories>
       <tags>
-        <tag>react</tag>
         <tag>redux</tag>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -53,8 +65,8 @@
         <category>notes</category>
       </categories>
       <tags>
-        <tag>react</tag>
         <tag>redux</tag>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -65,8 +77,8 @@
         <category>notes</category>
       </categories>
       <tags>
-        <tag>react</tag>
         <tag>redux</tag>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>

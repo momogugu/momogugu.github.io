@@ -321,6 +321,184 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/18/redux-middleware.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="mogu">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="蘑菇小姐会开花">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/09/18/redux-middleware.html" itemprop="url">
+                  redux middleware
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-18T21:13:50+08:00">
+                2018-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/18/redux-middleware.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/09/18/redux-middleware.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2018/09/18/redux-middleware.html" class="leancloud_visitors" data-flag-title="redux middleware">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="wrapping-dispatch-to-log-actions"><a href="#wrapping-dispatch-to-log-actions" class="headerlink" title="wrapping dispatch() to log actions"></a>wrapping dispatch() to log actions</h2><p>logger 中间件<br>函数<code>addLoggingToDispatch</code>，接受一个store为参数，返回一个新的dispatch方法，将store.dispatch覆盖，并log出相对应的action和state信息。</p>
+<blockquote>
+<p>the addLoggingToDispatch function takes the dispatch from the store and returns a new version of dispatch that logs every action and the state</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> addLoggingToDispatch = <span class="function">(<span class="params">store</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> next = store.dispatch;</span><br><span class="line">	<span class="keyword">if</span>(!<span class="built_in">console</span>.group) &#123;</span><br><span class="line">		<span class="keyword">return</span> next</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 返回一个新的dispatch方法</span></span><br><span class="line">	<span class="comment">// 在store.dispatch的基础上，log一些信息</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function">(<span class="params">action</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.group(action.type);</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'%c prev state'</span>, <span class="string">'color: gray'</span>, store.getState());</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'%c action'</span>, <span class="string">'color: blue'</span>, action);</span><br><span class="line">		<span class="keyword">const</span> returnValue = next(action);</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'%c next state'</span>, store.getState());</span><br><span class="line">		<span class="built_in">console</span>.groupEnd(action.type);</span><br><span class="line">		<span class="keyword">return</span> returnValue;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!--引用logger中间件--&gt;</span><br><span class="line"><span class="keyword">const</span> configureStore = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> store = createStore(todoApp)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">		store.dispatch = addLoggingToDispatch(store)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"> 	<span class="keyword">return</span> store</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="wrapping-dispatch-to-recognize-promise"><a href="#wrapping-dispatch-to-recognize-promise" class="headerlink" title="wrapping dispatch() to recognize promise"></a>wrapping dispatch() to recognize promise</h2><p>promise中间件<br>redux 只能dispatch普通的对象，不能dispatch promise<br>函数<code>addLoggingToDispatch</code>，接受一个store为参数，返回一个新的能处理promise的dispatch方法，。</p>
+<blockquote>
+<p>a function addPromiseSupport() that takes the store and returns a version of dispatch that supports promises.</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/18/redux-middleware.html#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/redux-persisting-the-state-to-the-local-storage.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1908,182 +2086,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/12/mongoose的使用.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="mogu">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/uploads/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="蘑菇小姐会开花">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="蘑菇小姐会开花" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/12/mongoose的使用.html" itemprop="url">
-                  mongoose的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-12T09:20:55+08:00">
-                2017-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mongodb/" itemprop="url" rel="index">
-                    <span itemprop="name">mongodb</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/12/mongoose的使用.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/12/12/mongoose的使用.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-             <span id="/2017/12/12/mongoose的使用.html" class="leancloud_visitors" data-flag-title="mongoose的使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>mongoose是操作mongodb的一个数据模型库；封装了mongodb对文档操作的常用处理方法（增删改查），让nodejs操作mongodb数据库变得快捷灵活。</p>
-<h3 id="安装mongoose"><a href="#安装mongoose" class="headerlink" title="安装mongoose"></a>安装mongoose</h3><p>在昨天的mongo目录下安装mongoose<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mongoose</span><br></pre></td></tr></table></figure></p>
-<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>新建mongoose.js，并编辑<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"><span class="keyword">var</span> db = mongoose.connect(<span class="string">'mongodb://localhost/test'</span>);</span><br><span class="line">db.connection.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'数据库test连接失败：'</span> + error);</span><br><span class="line">&#125;);</span><br><span class="line">db.connection.on(<span class="string">'open'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'数据库test连接成功'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>打开一个终端，开启mongodb服务：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod</span><br></pre></td></tr></table></figure></p>
-<p>再打开一个终端，运行mongoose.js：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node mongoose.js</span><br><span class="line">&lt;!--成功后便会输出：数据库<span class="built_in">test</span>连接成功--&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Schema-Model"><a href="#Schema-Model" class="headerlink" title="Schema/Model"></a>Schema/Model</h3><p>1.Schema: 数据库集合的结构对象（一个Schema对应一个collection），定义document文档结构<br>2.Model: 由Schema构建而成，可操作数据库<br>继续编辑mongoose.js，在数据库连接成功的情况下，在数据库test中新建一个集合test1<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> TestSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line"> name: &#123;<span class="attr">type</span>: <span class="built_in">String</span>&#125;,</span><br><span class="line"> age: &#123;<span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">default</span>: <span class="number">0</span>&#125;,</span><br><span class="line"> email: &#123;<span class="attr">type</span>: <span class="built_in">String</span>&#125;,</span><br><span class="line"> time: &#123;<span class="attr">type</span>: <span class="built_in">Date</span>, <span class="attr">default</span>: <span class="built_in">Date</span>.now&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> TestModel = db.model(<span class="string">'test1'</span>, TestSchema);</span><br><span class="line">&lt;!--集合名称，集合的结构对象--&gt;</span><br><span class="line">&lt;!--Document文档（关联数组式的对象）&lt; Collection对象 &lt; 数据库--&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Model数据插入"><a href="#Model数据插入" class="headerlink" title="Model数据插入"></a>Model数据插入</h4><p>插入保存一组数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">TestModel.create([</span><br><span class="line">&#123;<span class="attr">name</span>: <span class="string">'mogu'</span>, <span class="attr">age</span>: <span class="number">8</span>&#125;,</span><br><span class="line">&#123;<span class="attr">name</span>: <span class="string">'lly'</span>, <span class="attr">age</span>: <span class="number">9</span>&#125;,</span><br><span class="line">&#123;<span class="attr">name</span>: <span class="string">'nobody'</span>, <span class="attr">age</span>: <span class="number">38</span>, <span class="attr">email</span>: <span class="string">'123@qq.com'</span>&#125;</span><br><span class="line">], <span class="function"><span class="keyword">function</span>(<span class="params">error, docs</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span>(error) &#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'error: '</span> + error);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'save ok'</span>);</span><br><span class="line"> <span class="built_in">console</span>.log(docs);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/12/mongoose的使用.html#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2133,7 +2135,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
